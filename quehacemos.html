@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Qué Hacemos? - Special Forces Electrician</title>
+    <meta name="description" content="Conoce todo lo que hacemos en Special Forces Electrician. Servicios especializados en instalaciones eléctricas, energía renovable y automatización.">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/quehacemos.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="img/Logo special.png" alt="Special Forces Electrician" height="40" class="me-2">
+                <span class="fw-bold"><span class="text-white">Special Forces</span> <span class="text-warning">Electrician</span></span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">Sobre Nosotros</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item active" href="quehacemos.html">¿Qué hacemos?</a></li>
+                            <li><a class="dropdown-item" href="visionmision.html">Visión y Misión</a></li>
+                            <li><a class="dropdown-item" href="enfoquesostenible.html">Enfoque Sostenible</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="servicios.html">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Proyectos.html">Proyectos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contacto">Contacto</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Blog</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#consejos">Consejos de Mantenimiento</a></li>
+                            <li><a class="dropdown-item" href="#energia-solar">Energía Solar</a></li>
+                            <li><a class="dropdown-item" href="#automatizacion">Automatización</a></li>
+                            <li><a class="dropdown-item" href="#domotica">Domótica</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="d-flex ms-3">
+                    <button class="btn btn-warning me-2" onclick="openWhatsApp()">
+                        <i class="fas fa-calculator me-1"></i>Cotizar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+     Hero Section - CORREGIDO: Se removió el style inline, ahora usa solo CSS 
+    <section class="hero-section position-relative overflow-hidden" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('img/hero_que_hacemos.jpg'); background-size: cover; background-position: center;">
+        <div class="container h-100 d-flex align-items-center">
+            <div class="row w-100">
+                <div class="col-12 text-center">
+                    <h1 class="display-3 fw-bold text-white mb-4 fade-in-title">¿Qué <span class="text-warning">Hacemos</span>?</h1>
+                    <p class="lead text-light mb-4 fade-in-subtitle">Transformamos ideas en soluciones eléctricas reales</p>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center fade-in-breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html" class="text-warning">Inicio</a></li>
+                            <li class="breadcrumb-item"><span class="text-light">Sobre Nosotros</span></li>
+                            <li class="breadcrumb-item active text-warning">¿Qué Hacemos?</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     
+    <section class="py-5 bg-dark-gray">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="display-5 fw-bold text-white mb-4 section-title">Somos <span class="text-warning">Especialistas</span> en Soluciones Eléctricas</h2>
+                    <p class="lead text-light section-description">Con más de 5 años de experiencia, nos dedicamos a brindar soluciones eléctricas integrales que van desde instalaciones básicas hasta sistemas complejos de automatización y energía renovable.</p>
+                </div>
+            </div>
+
+            <div class="row g-4 mb-5" id="especialidades">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 bg-gray border-0 shadow-sm specialty-card" data-specialty="industrial">
+                        <div class="card-body p-4 text-center">
+                            <div class="mb-4">
+                                <i class="fas fa-industry fa-3x text-warning mb-3 specialty-icon"></i>
+                                <h4 class="fw-bold text-white">Sector Industrial</h4>
+                            </div>
+                            <p class="text-light mb-4">Instalaciones eléctricas de media y alta tensión para plantas industriales, con sistemas de control y automatización avanzados.</p>
+                            <ul class="list-unstyled text-start">
+                                <li class="mb-2 text-light"><i class="fas fa-check text-warning me-2"></i>Subestaciones eléctricas</li>
+                                <li class="mb-2 text-light"><i class="fas fa-check text-warning me-2"></i>Tableros de control</li>
+                                <li class="mb-2 text-light"><i class="fas fa-check text-warning me-2"></i>Sistemas de potencia</li>
+                                <li class="mb-2 text-light"><i class="fas fa-check text-warning me-2"></i>Automatización industrial</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 bg-gray border-0 shadow-sm specialty-card" data-specialty="comercial">
+                        <div class="card-body p-4 text-center">
+                            <div class="mb-4">
+                                <i class="fas fa-building fa-3x text-warning mb-3 specialty-icon"></i>
+                                <h4 class="fw-bold text-white">Sector Comercial</h4>
+                            </div>
+                            <p class="text-light mb-4">Soluciones eléctricas para centros comerciales, oficinas y establecimientos comerciales con eficiencia energética.</p>
+                            <ul class="list-unstyled text-start">
+                                <li class="mb-2 text-light"><i class="fas fa-check text-warning me-2"></i>Iluminación LED</li>
+                                <li class="mb-2 text-light"><i class="fas fa-check text-warning me-2"></i>Sistemas de emergencia</li>
+                                <li class="mb-2 text-light"><i class="fas fa-check text-warning me-2"></i>Climatización eléctrica</li>
+                                <li class="mb-2 text-light"><i class="fas fa-check text-warning me-2"></i>Seguridad electrónica</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 bg-gray border-0 shadow-sm specialty-card" data-specialty="residencial">
+                        <div class="card-body p-4 text-center">
+                            <div class="mb-4">
+                                <i class="fas fa-home fa-3x text-warning mb-3 specialty-icon"></i>
+                                <h4 class="fw-bold text-white">Sector Residencial</h4>
+                            </div>
+                            <p class="text-light mb-4">Instalaciones eléctricas residenciales modernas con domótica y sistemas inteligentes para el hogar.</p>
+                            <ul class="list-unstyled text-start">
+                                <li class="mb-2 text-light"><i class="fas fa-check text-warning me-2"></i>Instalaciones domiciliarias</li>
+                                <li class="mb-2 text-light"><i class="fas fa-check text-warning me-2"></i>Domótica y smart home</li>
+                                <li class="mb-2 text-light"><i class="fas fa-check text-warning me-2"></i>Paneles solares residenciales</li>
+                                <li class="mb-2 text-light"><i class="fas fa-check text-warning me-2"></i>Sistemas de seguridad</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-5">
+                <div class="col-12">
+                    <h3 class="display-6 fw-bold text-white text-center mb-5 process-title">Nuestro <span class="text-warning">Proceso</span> de Trabajo</h3>
+                </div>
+            </div>
+
+            <div class="row g-4 mb-5" id="proceso">
+                <div class="col-lg-3 col-md-6">
+                    <div class="text-center process-step" data-step="1">
+                        <div class="step-number bg-warning text-dark rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                            <span class="fw-bold fs-3">1</span>
+                        </div>
+                        <h5 class="fw-bold text-white">Consulta Inicial</h5>
+                        <p class="text-light">Evaluamos tus necesidades y realizamos un diagnóstico completo del proyecto.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="text-center process-step" data-step="2">
+                        <div class="step-number bg-warning text-dark rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                            <span class="fw-bold fs-3">2</span>
+                        </div>
+                        <h5 class="fw-bold text-white">Diseño y Planificación</h5>
+                        <p class="text-light">Creamos planos detallados y planificamos cada aspecto técnico del proyecto.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="text-center process-step" data-step="3">
+                        <div class="step-number bg-warning text-dark rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                            <span class="fw-bold fs-3">3</span>
+                        </div>
+                        <h5 class="fw-bold text-white">Ejecución</h5>
+                        <p class="text-light">Implementamos la solución con personal calificado y materiales de primera calidad.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="text-center process-step" data-step="4">
+                        <div class="step-number bg-warning text-dark rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                            <span class="fw-bold fs-3">4</span>
+                        </div>
+                        <h5 class="fw-bold text-white">Seguimiento</h5>
+                        <p class="text-light">Brindamos soporte post-instalación y mantenimiento preventivo continuo.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-5">
+                <div class="col-12">
+                    <h3 class="display-6 fw-bold text-white text-center mb-5 tech-title">Tecnologías que <span class="text-warning">Manejamos</span></h3>
+                </div>
+            </div>
+
+            <div class="row g-4" id="tecnologias">
+                <div class="col-lg-6">
+                    <div class="card bg-gray border-0 shadow-sm h-100 tech-card">
+                        <div class="card-body p-4">
+                            <h5 class="fw-bold text-warning mb-3"><i class="fas fa-microchip me-2"></i>Tecnologías Avanzadas</h5>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2 text-light tech-item"><i class="fas fa-arrow-right text-warning me-2"></i>IoT y Smart Devices</li>
+                                        <li class="mb-2 text-light tech-item"><i class="fas fa-arrow-right text-warning me-2"></i>Sistemas SCADA</li>
+                                        <li class="mb-2 text-light tech-item"><i class="fas fa-arrow-right text-warning me-2"></i>PLC y HMI</li>
+                                        <li class="mb-2 text-light tech-item"><i class="fas fa-arrow-right text-warning me-2"></i>Variadores de frecuencia</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2 text-light tech-item"><i class="fas fa-arrow-right text-warning me-2"></i>Sistemas BMS</li>
+                                        <li class="mb-2 text-light tech-item"><i class="fas fa-arrow-right text-warning me-2"></i>Monitoreo remoto</li>
+                                        <li class="mb-2 text-light tech-item"><i class="fas fa-arrow-right text-warning me-2"></i>Análisis de calidad de energía</li>
+                                        <li class="mb-2 text-light tech-item"><i class="fas fa-arrow-right text-warning me-2"></i>Sistemas de respaldo UPS</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card bg-gray border-0 shadow-sm h-100 tech-card">
+                        <div class="card-body p-4">
+                            <h5 class="fw-bold text-warning mb-3"><i class="fas fa-leaf me-2"></i>Energías Renovables</h5>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2 text-light tech-item"><i class="fas fa-arrow-right text-warning me-2"></i>Paneles fotovoltaicos</li>
+                                        <li class="mb-2 text-light tech-item"><i class="fas fa-arrow-right text-warning me-2"></i>Inversores solares</li>
+                                        <li class="mb-2 text-light tech-item"><i class="fas fa-arrow-right text-warning me-2"></i>Sistemas de almacenamiento</li>
+                                        <li class="mb-2 text-light tech-item"><i class="fas fa-arrow-right text-warning me-2"></i>Microinversores</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2 text-light tech-item"><i class="fas fa-arrow-right text-warning me-2"></i>Sistemas híbridos</li>
+                                        <li class="mb-2 text-light tech-item"><i class="fas fa-arrow-right text-warning me-2"></i>Medición bidireccional</li>
+                                        <li class="mb-2 text-light tech-item"><i class="fas fa-arrow-right text-warning me-2"></i>Optimizadores de potencia</li>
+                                        <li class="mb-2 text-light tech-item"><i class="fas fa-arrow-right text-warning me-2"></i>Estructuras de montaje</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-warning cta-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h3 class="fw-bold text-dark mb-3 cta-title">¿Tienes un proyecto en mente?</h3>
+                    <p class="text-dark mb-4 cta-description">Permítenos ayudarte a convertir tu idea en una realidad eléctrica eficiente y segura.</p>
+                    <div class="d-flex justify-content-center gap-3 flex-wrap cta-buttons">
+                        <button class="btn btn-dark btn-lg cta-btn-primary" onclick="openWhatsApp()">
+                            <i class="fab fa-whatsapp me-2"></i>Consulta Gratuita
+                        </button>
+                        <a href="index.html#contacto" class="btn btn-outline-dark btn-lg cta-btn-secondary">
+                            <i class="fas fa-envelope me-2"></i>Enviar Mensaje
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-brand mb-4">
+                        <img src="img/Logo special.png" alt="Special Forces Electrician" height="50" class="mb-3">
+                        <h5 class="text-warning fw-bold">Special Forces Electrician</h5>
+                        <p class="text-light small">Especialistas en soluciones eléctricas integrales. Comprometidos con la calidad, seguridad e innovación en cada proyecto.</p>
+                    </div>
+
+                    <div class="social-links">
+                        <h6 class="text-warning mb-3">Síguenos</h6>
+                        <div class="d-flex gap-3">
+                            <a href="https://api.whatsapp.com/send/?phone=%2B573173945568&text=Hola%2C+me+interesa+obtener+una+cotización+para+un+proyecto+eléctrico.&type=phone_number&app_absent=0" class="text-light"><i class="fab fa-whatsapp fa-lg"></i></a>
+                            <a href="https://www.facebook.com/profile.php?id=100066506946924&rdid=HYPcBbHBQOdn7R8m&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1Bx8L4WTej%2F" class="text-light"><i class="fab fa-facebook fa-lg"></i></a>
+                            <a href="https://www.instagram.com/specialforceselectrician?igsh=MXBxc3U0a3BsZGwxaA==" class="text-light"><i class="fab fa-instagram fa-lg"></i></a>
+                            <a href="https://www.linkedin.com/company/special-forces-electrician-sas/" class="text-light"><i class="fab fa-linkedin fa-lg"></i></a>
+                            <a href="https://www.tiktok.com/@electricistaspecialescol?_t=ZS-8yWThzShAWa&_r=1" class="text-light"><i class="fab fa-tiktok fa-lg"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="text-warning mb-3">Enlaces</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#home" class="text-light text-decoration-none small">Inicio</a></li>
+                        <li class="mb-2"><a href="#servicios" class="text-light text-decoration-none small">Servicios</a></li>
+                        <li class="mb-2"><a href="#proyectos" class="text-light text-decoration-none small">Proyectos</a></li>
+                        <li class="mb-2"><a href="#contacto" class="text-light text-decoration-none small">Contacto</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none small">Blog</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="text-warning mb-3">Servicios</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="servicios.html" class="text-light text-decoration-none small">Instalaciones Eléctricas</a></li>
+                        <li class="mb-2"><a href="servicios.html" class="text-light text-decoration-none small">Redes de Datos</a></li>
+                        <li class="mb-2"><a href="servicios.html" class="text-light text-decoration-none small">Seguridad Electrónica</a></li>
+                        <li class="mb-2"><a href="servicios.html" class="text-light text-decoration-none small">Energía Renovable</a></li>
+                        <li class="mb-2"><a href="servicios.html" class="text-light text-decoration-none small">Mantenimiento</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="text-warning mb-3">Proyectos</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="Proyectos.html" class="text-light text-decoration-none small">Comerciales</a></li>
+                        <li class="mb-2"><a href="Proyectos.html" class="text-light text-decoration-none small">Industriales</a></li>
+                        <li class="mb-2"><a href="Proyectos.html" class="text-light text-decoration-none small">Residenciales</a></li>
+                        <li class="mb-2"><a href="Proyectos.html" class="text-light text-decoration-none small">Energía Solar</a></li>
+                        <li class="mb-2"><a href="Proyectos.html" class="text-light text-decoration-none small">Automatización</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="text-warning mb-3">Legal</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="Politicaprivacidad.html" class="text-light text-decoration-none small">Política de Privacidad</a></li>
+                        <li class="mb-2"><a href="terminosservicio.html" class="text-light text-decoration-none small">Términos de Servicio</a></li>
+                        <li class="mb-2"><a href="accesibilidad.html" class="text-light text-decoration-none small">Accesibilidad</a></li>
+                        <li class="mb-2"><a href="avisolegal.html" class="text-light text-decoration-none small">Aviso Legal</a></li>
+                        <li class="mb-2"><a href="certificaciones.html" class="text-light text-decoration-none small">Certificaciones</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="my-4 border-secondary">
+
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="small text-muted mb-0">© 2025 Special Forces Electrician. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="d-flex justify-content-md-end gap-3">
+                        <a href="Politicaprivacidad.html" class="text-muted text-decoration-none small">Política de Privacidad</a>
+                        <a href="terminosservicio.html" class="text-muted text-decoration-none small">Términos de Servicio</a>
+                        <a href="accesibilidad.html" class="text-muted text-decoration-none small">Accesibilidad</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script/quehacemos.js"></script>
+</body>
+</html>

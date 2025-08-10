@@ -1,0 +1,137 @@
+📝 LISTA DE IMÁGENES EDITABLES - SPECIAL FORCES ELECTRICIAN
+===========================================================
+
+Para cambiar cualquier imagen, simplemente reemplaza el archivo en la carpeta "img/" 
+o cambia el nombre en el código HTML.
+
+🔧 IMÁGENES PRINCIPALES:
+========================
+
+1. LOGO PRINCIPAL (Navbar):
+   📁 Archivo: img/logo_special.png
+   📏 Tamaño: 60x40px aprox
+   🎯 Ubicación: Barra de navegación superior
+
+2. LOGO FOOTER:
+   📁 Archivo: img/logo_footer.png
+   📏 Tamaño: 80x50px aprox
+   🎯 Ubicación: Pie de página
+
+🎬 IMÁGENES HERO (6 slides):
+============================
+
+3. SLIDE 1 - Soluciones Eléctricas:
+   📁 Archivo: img/hero_slide1.jpg
+   📏 Tamaño: 1920x1080px recomendado
+   🎯 Tema: Instalaciones eléctricas generales
+
+4. SLIDE 2 - Energía Renovable:
+   📁 Archivo: img/hero_slide2.jpg
+   📏 Tamaño: 1920x1080px recomendado
+   🎯 Tema: Paneles solares, energía sostenible
+
+5. SLIDE 3 - Automatización:
+   📁 Archivo: img/hero_slide3.jpg
+   📏 Tamaño: 1920x1080px recomendado
+   🎯 Tema: Domótica, casas inteligentes
+
+6. SLIDE 4 - Industrial:
+   📁 Archivo: img/hero_slide4.jpg
+   📏 Tamaño: 1920x1080px recomendado
+   🎯 Tema: Instalaciones industriales, fábricas
+
+7. SLIDE 5 - Redes de Datos:
+   📁 Archivo: img/hero_slide5.jpg
+   📏 Tamaño: 1920x1080px recomendado
+   🎯 Tema: Cables, fibra óptica, datacenters
+
+8. SLIDE 6 - Seguridad:
+   📁 Archivo: img/hero_slide6.jpg
+   📏 Tamaño: 1920x1080px recomendado
+   🎯 Tema: Cámaras, sistemas de seguridad
+
+🏗️ IMÁGENES DE PROYECTOS:
+=========================
+
+9. PROYECTO 1 - Centro Comercial:
+   📁 Archivo: img/project1.jpg
+   📏 Tamaño: 800x600px recomendado
+   🎯 Tema: Centro comercial, iluminación LED
+
+10. PROYECTO 2 - Planta Industrial:
+    📁 Archivo: img/project2.jpg
+    📏 Tamaño: 800x600px recomendado
+    🎯 Tema: Industria, maquinaria, instalaciones
+
+11. PROYECTO 3 - Residencial:
+    📁 Archivo: img/project3.jpg
+    📏 Tamaño: 800x600px recomendado
+    🎯 Tema: Casas, conjunto residencial
+
+12. PROYECTO 4 - Solar:
+    📁 Archivo: img/project4.jpg
+    📏 Tamaño: 800x600px recomendado
+    🎯 Tema: Granja solar, paneles fotovoltaicos
+
+🏆 CERTIFICACIONES:
+==================
+
+13. ISO 9001:
+    📁 Archivo: img/cert_iso9001.png
+    📏 Tamaño: 200x200px recomendado
+    🎯 Formato: PNG con fondo transparente
+
+14. RETIE:
+    📁 Archivo: img/cert_retie.png
+    📏 Tamaño: 200x200px recomendado
+    🎯 Formato: PNG con fondo transparente
+
+15. NFPA 70E:
+    📁 Archivo: img/cert_nfpa70e.png
+    📏 Tamaño: 200x200px recomendado
+    🎯 Formato: PNG con fondo transparente
+
+16. IEEE:
+    📁 Archivo: img/cert_ieee.png
+    📏 Tamaño: 200x200px recomendado
+    🎯 Formato: PNG con fondo transparente
+
+✅ CÓMO CAMBIAR UNA IMAGEN:
+===========================
+
+OPCIÓN 1 - Reemplazar archivo:
+1. Guarda tu nueva imagen con el mismo nombre
+2. Reemplaza el archivo en la carpeta img/
+3. ¡Listo!
+
+OPCIÓN 2 - Cambiar nombre en HTML:
+1. Guarda tu imagen con cualquier nombre en img/
+2. Busca la línea en index.html
+3. Cambia el nombre del archivo
+4. Ejemplo: img/logo_special.png → img/mi_nuevo_logo.png
+
+📂 ESTRUCTURA DE CARPETA:
+========================
+tu-sitio-web/
+├── img/
+│   ├── logo_special.png
+│   ├── logo_footer.png
+│   ├── hero_slide1.jpg
+│   ├── hero_slide2.jpg
+│   ├── hero_slide3.jpg
+│   ├── hero_slide4.jpg
+│   ├── hero_slide5.jpg
+│   ├── hero_slide6.jpg
+│   ├── project1.jpg
+│   ├── project2.jpg
+│   ├── project3.jpg
+│   ├── project4.jpg
+│   ├── cert_iso9001.png
+│   ├── cert_retie.png
+│   ├── cert_nfpa70e.png
+│   └── cert_ieee.png
+├── index.html
+├── styles.css
+└── script.js
+
+¡Todas las imágenes son 100% editables desde el HTML o reemplazando archivos!

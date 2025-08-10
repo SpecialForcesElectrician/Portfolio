@@ -1,0 +1,780 @@
+:root {
+  --sfe-orange: #ff6b35;
+  --sfe-dark: #000000;
+  --sfe-gray: #2c2c2c;
+  --sfe-dark-gray: #1a1a1a;
+  --sfe-light-gray: #404040;
+}
+
+/* Override Bootstrap's text-warning to use our custom orange */
+.text-warning {
+  color: var(--sfe-orange) !important;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
+  color: #fff;
+  background-color: var(--sfe-dark);
+}
+
+/* Custom Background Classes */
+.bg-gray {
+  background-color: var(--sfe-gray) !important;
+}
+
+.bg-dark-gray {
+  background-color: var(--sfe-dark-gray) !important;
+}
+
+/* Navigation */
+.navbar-brand {
+  font-size: 1.2rem;
+}
+
+.navbar-nav .nav-link {
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--sfe-orange) !important;
+}
+
+/* Navigation Dropdown Styling */
+.dropdown-menu {
+  background-color: var(--sfe-gray) !important;
+  border: 1px solid var(--sfe-light-gray) !important;
+  border-radius: 8px !important;
+}
+
+.dropdown-item {
+  color: #fff !important;
+  transition: all 0.3s ease;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background-color: var(--sfe-orange) !important;
+  color: #fff !important;
+}
+
+/* Hero Section - CORREGIDO: Se eliminó el margin-top y se añadió padding-top */
+.hero-section {
+  position: relative;
+  overflow: hidden;
+  margin-top: 0 !important; /* Asegura que no haya espacio externo */
+  padding-top: 150px; /* Añade espacio interno para el contenido */
+  min-height: 60vh;
+  background-size: cover;
+  background-position: center;
+}
+
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 107, 53, 0.1) 0%, transparent 70%);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.breadcrumb {
+  background: transparent;
+  padding: 0;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: ">";
+  color: var(--sfe-orange);
+}
+
+.hero-stats .stat-item {
+  text-align: center;
+  padding: 1rem;
+}
+
+/* Legal Content */
+.legal-content {
+  min-height: 100vh;
+}
+
+.legal-section {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.legal-section:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.legal-section:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.legal-section:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.legal-section:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.legal-section:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.legal-section:nth-child(6) {
+  animation-delay: 0.6s;
+}
+.legal-section:nth-child(7) {
+  animation-delay: 0.7s;
+}
+.legal-section:nth-child(8) {
+  animation-delay: 0.8s;
+}
+.legal-section:nth-child(9) {
+  animation-delay: 0.9s;
+}
+.legal-section:nth-child(10) {
+  animation-delay: 1.0s;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  border-bottom: 2px solid var(--sfe-orange);
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.content-card {
+  background: var(--sfe-dark-gray);
+  border: 1px solid rgba(255, 107, 53, 0.2);
+  border-radius: 15px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.content-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--sfe-orange), #e55a2b);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.content-card:hover::before {
+  transform: scaleX(1);
+}
+
+.content-card:hover {
+  border-color: var(--sfe-orange);
+  box-shadow: 0 10px 30px rgba(255, 107, 53, 0.2);
+  transform: translateY(-5px);
+}
+
+/* Company Data Sections */
+.company-data,
+.business-data {
+  padding: 2rem;
+  background: rgba(255, 107, 53, 0.05);
+  border-radius: 15px;
+  border-left: 4px solid var(--sfe-orange);
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.company-data:hover,
+.business-data:hover {
+  background: rgba(255, 107, 53, 0.1);
+  transform: translateY(-3px);
+}
+
+/* Contact Legal */
+.contact-legal {
+  border-left: 4px solid var(--sfe-orange);
+  transition: all 0.3s ease;
+}
+
+.contact-legal:hover {
+  background: rgba(255, 107, 53, 0.1) !important;
+  transform: translateX(5px);
+}
+
+/* Website Information */
+.website-info,
+.purpose-info {
+  padding: 2rem;
+  background: rgba(255, 107, 53, 0.05);
+  border-radius: 15px;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.website-info:hover,
+.purpose-info:hover {
+  background: rgba(255, 107, 53, 0.1);
+  transform: translateY(-3px);
+}
+
+/* Copyright Section */
+.copyright-section {
+  padding: 2rem;
+  background: rgba(255, 107, 53, 0.05);
+  border-radius: 15px;
+  border-left: 4px solid var(--sfe-orange);
+}
+
+.protected-content,
+.usage-restrictions {
+  padding: 1.5rem;
+  background: rgba(255, 107, 53, 0.1);
+  border-radius: 10px;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.protected-content:hover,
+.usage-restrictions:hover {
+  background: rgba(255, 107, 53, 0.2);
+  transform: translateY(-5px);
+}
+
+/* Trademark Notice */
+.trademark-notice {
+  transition: all 0.3s ease;
+}
+
+.trademark-notice:hover {
+  background: rgba(255, 107, 53, 0.1) !important;
+  transform: translateX(5px);
+}
+
+/* Liability Items */
+.liability-item {
+  padding: 2rem;
+  background: rgba(255, 107, 53, 0.05);
+  border-radius: 15px;
+  border-left: 4px solid var(--sfe-orange);
+  transition: all 0.3s ease;
+  margin-bottom: 1.5rem;
+}
+
+.liability-item:hover {
+  background: rgba(255, 107, 53, 0.1);
+  transform: translateX(5px);
+}
+
+/* User Obligations */
+.user-obligations,
+.prohibited-uses {
+  padding: 2rem;
+  background: rgba(255, 107, 53, 0.1);
+  border-radius: 15px;
+  height: 100%;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 107, 53, 0.2);
+}
+
+.user-obligations:hover {
+  background: rgba(255, 107, 53, 0.2);
+  border-color: var(--sfe-orange);
+  transform: translateY(-5px);
+}
+
+.prohibited-uses:hover {
+  background: rgba(220, 53, 69, 0.1);
+  border-color: #dc3545;
+  transform: translateY(-5px);
+}
+
+/* Consequences */
+.consequences {
+  border-left: 4px solid var(--sfe-orange);
+  transition: all 0.3s ease;
+}
+
+.consequences:hover {
+  background: rgba(255, 107, 53, 0.1) !important;
+  transform: translateX(5px);
+}
+
+/* Applicable Law */
+.applicable-law,
+.jurisdiction {
+  padding: 2rem;
+  background: rgba(255, 107, 53, 0.1);
+  border-radius: 15px;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.applicable-law:hover,
+.jurisdiction:hover {
+  background: rgba(255, 107, 53, 0.2);
+  transform: translateY(-5px);
+}
+
+/* Legal Framework */
+.legal-framework {
+  animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 107, 53, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 107, 53, 0);
+  }
+}
+
+/* Modification Policy */
+.modification-policy {
+  padding: 2rem;
+  background: rgba(255, 107, 53, 0.05);
+  border-radius: 15px;
+  border-left: 4px solid var(--sfe-orange);
+}
+
+.notification-process,
+.user-responsibility {
+  padding: 1.5rem;
+  background: rgba(255, 107, 53, 0.1);
+  border-radius: 10px;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.notification-process:hover,
+.user-responsibility:hover {
+  background: rgba(255, 107, 53, 0.2);
+  transform: translateY(-3px);
+}
+
+/* Contact Methods */
+.contact-method {
+  text-align: center;
+  padding: 2rem;
+  background: rgba(255, 107, 53, 0.1);
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  height: 100%;
+  border: 1px solid rgba(255, 107, 53, 0.2);
+}
+
+.contact-method:hover {
+  background: rgba(255, 107, 53, 0.2);
+  transform: translateY(-5px);
+  border-color: var(--sfe-orange);
+}
+
+/* Response Time */
+.response-time {
+  border-left: 4px solid var(--sfe-orange);
+  transition: all 0.3s ease;
+}
+
+.response-time:hover {
+  background: rgba(255, 107, 53, 0.1) !important;
+  transform: translateX(5px);
+}
+
+/* Legal Documents */
+.legal-document {
+  display: flex;
+  align-items: start;
+  padding: 1.5rem;
+  background: rgba(255, 107, 53, 0.05);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 107, 53, 0.1);
+}
+
+.legal-document:hover {
+  background: rgba(255, 107, 53, 0.1);
+  border-color: var(--sfe-orange);
+  transform: translateY(-3px);
+}
+
+/* Legal Suite */
+.legal-suite {
+  /* Removemos la animación shimmer y dejamos solo el estilo estático */
+  position: relative;
+  /* Removemos overflow: hidden para que no haya efectos visuales */
+}
+
+/* Alerts */
+.alert-warning {
+  background-color: rgba(255, 107, 53, 0.1) !important;
+  border-color: var(--sfe-orange) !important;
+  color: var(--sfe-orange) !important;
+}
+
+.alert-info {
+  background-color: rgba(255, 107, 53, 0.1) !important;
+  border-color: var(--sfe-orange) !important;
+  color: #fff !important;
+}
+
+/* Buttons */
+.btn-warning {
+  background-color: var(--sfe-orange) !important;
+  border-color: var(--sfe-orange) !important;
+  color: white !important;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-warning:hover {
+  background-color: #e55a2b !important;
+  border-color: #e55a2b !important;
+  color: white !important;
+  transform: translateY(-2px);
+}
+
+.btn-outline-warning {
+  color: var(--sfe-orange) !important;
+  border-color: var(--sfe-orange) !important;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-warning:hover {
+  background-color: var(--sfe-orange) !important;
+  border-color: var(--sfe-orange) !important;
+  color: white !important;
+  transform: translateY(-2px);
+}
+
+/* Back to Top Button */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: var(--sfe-orange);
+  color: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top:hover {
+  background: #e55a2b;
+  transform: translateY(-3px);
+}
+
+/* Footer */
+footer a:hover {
+  color: var(--sfe-orange) !important;
+  transition: color 0.3s ease;
+}
+
+footer .navbar-brand {
+  font-size: 1.2rem;
+}
+
+footer .navbar-brand span {
+  color: var(--sfe-orange);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 3rem 0;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .content-card {
+    padding: 1.5rem;
+  }
+
+  .company-data,
+  .business-data,
+  .website-info,
+  .purpose-info,
+  .user-obligations,
+  .prohibited-uses,
+  .applicable-law,
+  .jurisdiction,
+  .contact-method {
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero-stats .stat-item {
+    padding: 0.5rem;
+  }
+
+  .liability-item {
+    padding: 1.5rem;
+  }
+
+  .legal-document {
+    padding: 1rem;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .legal-document i {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-section {
+    padding: 2rem 0;
+  }
+
+  .section-title {
+    font-size: 1.3rem;
+  }
+
+  .content-card {
+    padding: 1rem;
+  }
+
+  .company-data,
+  .business-data,
+  .website-info,
+  .purpose-info,
+  .user-obligations,
+  .prohibited-uses,
+  .applicable-law,
+  .jurisdiction,
+  .contact-method {
+    padding: 1rem;
+  }
+
+  .hero-stats {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .hero-stats .stat-item {
+    padding: 1rem;
+  }
+
+  .liability-item {
+    padding: 1rem;
+  }
+
+  .copyright-section,
+  .modification-policy {
+    padding: 1rem;
+  }
+
+  .protected-content,
+  .usage-restrictions,
+  .notification-process,
+  .user-responsibility {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--sfe-dark-gray);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--sfe-orange);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e55a2b;
+}
+
+/* Print Styles */
+@media print {
+  .navbar,
+  .back-to-top,
+  footer {
+    display: none !important;
+  }
+
+  .hero-section {
+    padding: 2rem 0;
+  }
+
+  .content-card {
+    break-inside: avoid;
+    margin-bottom: 1rem;
+  }
+
+  body {
+    color: #000 !important;
+    background: #fff !important;
+  }
+
+  .text-light,
+  .text-white {
+    color: #000 !important;
+  }
+
+  .text-warning {
+    color: #ff6b35 !important;
+  }
+}
+
+/* Accessibility */
+.content-card:focus,
+.btn:focus,
+.back-to-top:focus {
+  outline: 2px solid var(--sfe-orange);
+  outline-offset: 2px;
+}
+
+/* Loading States */
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.loading::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid var(--sfe-orange);
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Hover Effects for Lists */
+.content-card ul li {
+  transition: all 0.3s ease;
+  padding: 0.2rem 0;
+}
+
+.content-card ul li:hover {
+  color: var(--sfe-orange) !important;
+  transform: translateX(5px);
+}
+
+/* Special Effects for Important Sections */
+.disclaimer {
+  position: relative;
+  overflow: hidden;
+}
+
+.disclaimer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: shimmer 3s infinite;
+}
+
+/* Interactive Elements */
+.legal-document,
+.contact-method,
+.company-data,
+.business-data {
+  cursor: pointer;
+}
+
+/* Floating Elements */
+.floating-legal-info {
+  position: fixed;
+  bottom: 90px;
+  left: 30px;
+  background: var(--sfe-orange);
+  color: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  z-index: 998;
+  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.floating-legal-info.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.floating-legal-info:hover {
+  background: #e55a2b;
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+}

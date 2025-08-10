@@ -1,0 +1,672 @@
+:root {
+  --sfe-orange: #ff6b35;
+  --sfe-dark: #000000;
+  --sfe-gray: #2c2c2c;
+  --sfe-dark-gray: #1a1a1a;
+  --sfe-light-gray: #404040;
+}
+
+/* Override Bootstrap's text-warning to use our custom orange */
+.text-warning {
+  color: var(--sfe-orange) !important;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
+  color: #fff;
+  background-color: var(--sfe-dark);
+}
+
+/* Custom Background Classes */
+.bg-gray {
+  background-color: var(--sfe-gray) !important;
+}
+
+.bg-dark-gray {
+  background-color: var(--sfe-dark-gray) !important;
+}
+
+/* Navigation */
+.navbar-brand {
+  font-size: 1.2rem;
+}
+
+.navbar-nav .nav-link {
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--sfe-orange) !important;
+}
+
+/* Navigation Dropdown Styling */
+.dropdown-menu {
+  background-color: var(--sfe-gray) !important;
+  border: 1px solid var(--sfe-light-gray) !important;
+  border-radius: 8px !important;
+}
+
+.dropdown-item {
+  color: #fff !important;
+  transition: all 0.3s ease;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background-color: var(--sfe-orange) !important;
+  color: #fff !important;
+}
+
+/* Hero Section Specific Animations - CORREGIDO */
+.hero-section {
+  position: relative;
+  overflow: hidden;
+  margin-top: 200px !important; /* CORREGIDO: Cambiado de 76px a 200px */
+  min-height: 40vh;
+  background-size: cover;
+  background-position: center;
+}
+
+.vision-title {
+  animation: zoomIn 1.2s ease-out;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.vision-subtitle {
+  animation: fadeInUp 1s ease-out 0.4s both;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.vision-breadcrumb {
+  animation: fadeInUp 1s ease-out 0.8s both;
+}
+
+.breadcrumb {
+  background: none;
+  padding: 0;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: "›";
+  color: var(--primary-color);
+}
+
+/* Mission and Vision Cards */
+.mission-card,
+.vision-card {
+  transition: all 0.5s ease;
+  border-radius: 20px;
+  background: linear-gradient(135deg, var(--sfe-gray), var(--sfe-dark-gray));
+  position: relative;
+  overflow: hidden;
+}
+
+.mission-card::before,
+.vision-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 107, 53, 0.1) 0%, transparent 70%);
+  transform: scale(0);
+  transition: transform 0.8s ease;
+}
+
+.mission-card:hover::before,
+.vision-card:hover::before {
+  transform: scale(1);
+}
+
+.mission-card:hover,
+.vision-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(255, 107, 53, 0.3);
+  border: 2px solid rgba(255, 107, 53, 0.5);
+}
+
+.mission-icon,
+.vision-icon {
+  transition: all 0.5s ease;
+  box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
+}
+
+.mission-card:hover .mission-icon,
+.vision-card:hover .vision-icon {
+  transform: scale(1.1) rotate(360deg);
+  box-shadow: 0 15px 40px rgba(255, 107, 53, 0.5);
+}
+
+.mission-text,
+.vision-text {
+  position: relative;
+  z-index: 2;
+}
+
+.mission-point,
+.vision-point {
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: slideInLeft 0.6s ease forwards;
+}
+
+.mission-point:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.mission-point:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.mission-point:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.mission-point:nth-child(4) {
+  animation-delay: 0.8s;
+}
+
+.vision-point:nth-child(1) {
+  animation-delay: 0.3s;
+}
+.vision-point:nth-child(2) {
+  animation-delay: 0.5s;
+}
+.vision-point:nth-child(3) {
+  animation-delay: 0.7s;
+}
+.vision-point:nth-child(4) {
+  animation-delay: 0.9s;
+}
+
+.mission-point:hover,
+.vision-point:hover {
+  transform: translateX(10px);
+  color: var(--sfe-orange) !important;
+}
+
+/* Values Section */
+.values-title {
+  animation: bounceInDown 1s ease-out;
+  position: relative;
+}
+
+.values-title::after {
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--sfe-orange), #e55a2b);
+  border-radius: 2px;
+  animation: expandWidth 1s ease-out 0.5s both;
+}
+
+.values-subtitle {
+  animation: fadeInUp 0.8s ease-out 0.3s both;
+}
+
+/* Value Cards */
+.value-card {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-radius: 20px;
+  background: linear-gradient(135deg, var(--sfe-gray), var(--sfe-dark-gray));
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.value-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+.value-card:hover::before {
+  left: 100%;
+}
+
+.value-card:hover {
+  transform: translateY(-15px) scale(1.05);
+  box-shadow: 0 20px 40px rgba(255, 107, 53, 0.4);
+  border: 2px solid var(--sfe-orange);
+}
+
+.value-icon {
+  transition: all 0.5s ease;
+  box-shadow: 0 5px 20px rgba(255, 107, 53, 0.3);
+}
+
+.value-card:hover .value-icon {
+  transform: scale(1.2) rotateY(180deg);
+  box-shadow: 0 10px 30px rgba(255, 107, 53, 0.6);
+  background: linear-gradient(135deg, var(--sfe-orange), #e55a2b) !important;
+}
+
+/* Value Card Specific Animations */
+.value-card[data-value="seguridad"] {
+  animation: slideInLeft 0.8s ease-out;
+}
+
+.value-card[data-value="calidad"] {
+  animation: slideInUp 0.8s ease-out 0.2s both;
+}
+
+.value-card[data-value="innovacion"] {
+  animation: slideInRight 0.8s ease-out 0.4s both;
+}
+
+.value-card[data-value="confianza"] {
+  animation: slideInLeft 0.8s ease-out 0.6s both;
+}
+
+.value-card[data-value="sostenibilidad"] {
+  animation: slideInUp 0.8s ease-out 0.8s both;
+}
+
+.value-card[data-value="equipo"] {
+  animation: slideInRight 0.8s ease-out 1s both;
+}
+
+/* Objectives Section */
+.objectives-title {
+  animation: rotateIn 1s ease-out;
+}
+
+.objectives-subtitle {
+  animation: fadeInUp 0.8s ease-out 0.3s both;
+}
+
+.objective-card {
+  transition: all 0.4s ease;
+  border-radius: 15px;
+  background: linear-gradient(135deg, var(--sfe-gray), var(--sfe-dark-gray));
+  position: relative;
+  overflow: hidden;
+}
+
+.objective-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent, rgba(255, 107, 53, 0.1), transparent);
+  transition: right 0.6s ease;
+}
+
+.objective-card:hover::before {
+  right: 100%;
+}
+
+.objective-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(255, 107, 53, 0.3);
+  border: 1px solid rgba(255, 107, 53, 0.4);
+}
+
+.objective-item {
+  transition: all 0.3s ease;
+  padding: 3px 0;
+}
+
+.objective-item:hover {
+  transform: translateX(15px);
+  color: var(--sfe-orange) !important;
+}
+
+/* CTA Section */
+.vision-cta {
+  position: relative;
+  overflow: hidden;
+}
+
+.vision-cta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--sfe-orange), #e55a2b, var(--sfe-orange));
+  background-size: 200% 200%;
+  animation: gradientShift 4s ease infinite;
+  opacity: 0.95;
+}
+
+.vision-cta .container {
+  position: relative;
+  z-index: 2;
+}
+
+.cta-title {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.cta-description {
+  animation: fadeInUp 0.8s ease-out 0.3s both;
+}
+
+.cta-buttons {
+  animation: fadeInUp 0.8s ease-out 0.6s both;
+}
+
+.cta-btn-primary,
+.cta-btn-secondary {
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-btn-primary::before,
+.cta-btn-secondary::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.5s ease;
+}
+
+.cta-btn-primary:hover::before,
+.cta-btn-secondary:hover::before {
+  width: 400px;
+  height: 400px;
+}
+
+.cta-btn-primary:hover,
+.cta-btn-secondary:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+/* Buttons */
+.btn-warning {
+  background-color: var(--sfe-orange) !important;
+  border-color: var(--sfe-orange) !important;
+  color: white !important;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-warning:hover {
+  background-color: #e55a2b !important;
+  border-color: #e55a2b !important;
+  color: white !important;
+  transform: translateY(-2px);
+}
+
+.btn-outline-warning {
+  color: var(--sfe-orange) !important;
+  border-color: var(--sfe-orange) !important;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-warning:hover {
+  background-color: var(--sfe-orange) !important;
+  border-color: var(--sfe-orange) !important;
+  color: white !important;
+  transform: translateY(-2px);
+}
+
+/* Footer */
+footer a:hover {
+  color: var(--sfe-orange) !important;
+  transition: color 0.3s ease;
+}
+
+footer .navbar-brand {
+  font-size: 1.2rem;
+}
+
+footer .navbar-brand span {
+  color: var(--sfe-orange);
+}
+
+/* Breadcrumb */
+.breadcrumb-item a {
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.breadcrumb-item a:hover {
+  text-decoration: underline;
+  color: #e55a2b !important;
+}
+
+/* Form Controls */
+.form-control:focus {
+  border-color: var(--sfe-orange);
+  box-shadow: 0 0 0 0.2rem rgba(255, 107, 53, 0.25);
+  background-color: var(--sfe-gray) !important;
+  color: #fff !important;
+}
+
+.form-control,
+.form-select {
+  background-color: var(--sfe-gray) !important;
+  color: #fff !important;
+  border-color: #6c757d !important;
+}
+
+.form-control::placeholder {
+  color: #adb5bd !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .vision-title {
+    font-size: 2.5rem;
+  }
+
+  .mission-card,
+  .vision-card {
+    margin-bottom: 2rem;
+  }
+
+  .value-card {
+    margin-bottom: 2rem;
+  }
+
+  .objective-card {
+    margin-bottom: 2rem;
+  }
+
+  /* CORREGIDO: Ajuste para móviles */
+  .hero-section {
+    margin-top: 80px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .vision-title {
+    font-size: 2rem;
+  }
+
+  .display-5 {
+    font-size: 2rem;
+  }
+
+  .navbar-brand span {
+    font-size: 1rem;
+  }
+
+  /* CORREGIDO: Ajuste para pantallas muy pequeñas */
+  .hero-section {
+    margin-top: 70px !important;
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bounceInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(10px);
+  }
+  80% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes rotateIn {
+  from {
+    opacity: 0;
+    transform: rotate(-180deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes expandWidth {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100px;
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--sfe-dark-gray);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--sfe-orange);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e55a2b;
+}
+
+/* Text Color Overrides */
+.text-muted {
+  color: #adb5bd !important;
+}
+
+/* Newsletter */
+.newsletter .input-group .form-control:focus {
+  border-color: var(--sfe-orange);
+  box-shadow: none;
+}
+
+.newsletter .btn-warning:hover {
+  transform: none;
+}

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enfoque Sostenible - Special Forces Electrician</title>
+    <meta name="description" content="Conoce nuestro compromiso con la sostenibilidad y las energías renovables en Special Forces Electrician.">
+    
+     Bootstrap 5 CSS 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+     Font Awesome 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+     Google Fonts 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+     Custom CSS 
+    <link rel="stylesheet" href="style/enfoquesostenible.css">
+</head>
+<body>
+     Navigation 
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="img/Logo special.png" alt="Special Forces Electrician" height="40" class="me-2">
+                <span class="fw-bold"><span class="text-white">Special Forces</span> <span class="text-warning">Electrician</span></span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">Sobre Nosotros</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="quehacemos.html">¿Qué hacemos?</a></li>
+                            <li><a class="dropdown-item" href="visionmision.html">Visión y Misión</a></li>
+                            <li><a class="dropdown-item active" href="enfoquesostenible.html">Enfoque Sostenible</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="servicios.html" >Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Proyectos.html">Proyectos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contacto">Contacto</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Blog</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#consejos">Consejos de Mantenimiento</a></li>
+                            <li><a class="dropdown-item" href="#energia-solar">Energía Solar</a></li>
+                            <li><a class="dropdown-item" href="#automatizacion">Automatización</a></li>
+                            <li><a class="dropdown-item" href="#domotica">Domótica</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="d-flex ms-3">
+                    <button class="btn btn-warning me-2" onclick="openWhatsApp()">
+                        <i class="fas fa-calculator me-1"></i>Cotizar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+     Hero Section - CORREGIDO: Gradiente más suave y sin margin-top inline 
+    <section class="hero-section position-relative overflow-hidden" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('img/hero_sostenible.jpg'); background-size: cover; background-position: center;">
+        <div class="container h-100 d-flex align-items-center">
+            <div class="row w-100">
+                <div class="col-12 text-center">
+                    <h1 class="display-3 fw-bold text-white mb-4">Enfoque <span class="text-warning">Sostenible</span></h1>
+                    <p class="lead text-light mb-4">Comprometidos con un futuro energético limpio</p>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a href="index.html" class="text-warning">Inicio</a></li>
+                            <li class="breadcrumb-item"><span class="text-light">Sobre Nosotros</span></li>
+                            <li class="breadcrumb-item active text-warning">Enfoque Sostenible</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-dark-gray">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="display-5 fw-bold text-white mb-4">Nuestro Compromiso con el <span class="text-warning">Medio Ambiente</span></h2>
+                    <p class="lead text-light">En Special Forces Electrician creemos que la sostenibilidad no es solo una tendencia, sino una responsabilidad. Trabajamos activamente para reducir el impacto ambiental a través de soluciones eléctricas eficientes y energías renovables.</p>
+                </div>
+            </div>
+
+            <div class="row g-4 mb-5">
+                <div class="col-lg-3 col-md-6">
+                    <div class="card bg-gray border-0 shadow-sm h-100 text-center stat-card">
+                        <div class="card-body p-4">
+                            <div class="stat-icon bg-warning text-dark rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                                <i class="fas fa-solar-panel fa-2x"></i>
+                            </div>
+                            <h3 class="fw-bold text-warning mb-2 counter" data-target="500">0</h3>
+                            <h6 class="fw-bold text-white mb-2">kW Instalados</h6>
+                            <p class="text-light small">En sistemas solares fotovoltaicos</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="card bg-gray border-0 shadow-sm h-100 text-center stat-card">
+                        <div class="card-body p-4">
+                            <div class="stat-icon bg-warning text-dark rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                                <i class="fas fa-leaf fa-2x"></i>
+                            </div>
+                            <h3 class="fw-bold text-warning mb-2 counter" data-target="40">0</h3>
+                            <h6 class="fw-bold text-white mb-2">Reducción CO2</h6>
+                            <p class="text-light small">En proyectos implementados</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="card bg-gray border-0 shadow-sm h-100 text-center stat-card">
+                        <div class="card-body p-4">
+                            <div class="stat-icon bg-warning text-dark rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                                <i class="fas fa-lightbulb fa-2x"></i>
+                            </div>
+                            <h3 class="fw-bold text-warning mb-2 counter" data-target="60">0</h3>
+                            <h6 class="fw-bold text-white mb-2">Ahorro Energético</h6>
+                            <p class="text-light small">Con iluminación LED</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="card bg-gray border-0 shadow-sm h-100 text-center stat-card">
+                        <div class="card-body p-4">
+                            <div class="stat-icon bg-warning text-dark rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                                <i class="fas fa-recycle fa-2x"></i>
+                            </div>
+                            <h3 class="fw-bold text-warning mb-2 counter" data-target="95">0</h3>
+                            <h6 class="fw-bold text-white mb-2">Material Reciclado</h6>
+                            <p class="text-light small">En nuestros proyectos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+ 
+            <div class="row mb-5">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="display-5 fw-bold text-white">Nuestras <span class="text-warning">Iniciativas</span> Sostenibles</h2>
+                    <p class="lead text-light">Acciones concretas para un futuro más verde</p>
+                </div>
+            </div>
+
+            <div class="row g-4 mb-5">
+                <div class="col-lg-6">
+                    <div class="card bg-gray border-0 shadow-sm h-100 initiative-card">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="initiative-icon bg-warning text-dark rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 60px; height: 60px;">
+                                    <i class="fas fa-sun fa-lg"></i>
+                                </div>
+                                <h5 class="fw-bold text-white mb-0">Energía Solar</h5>
+                            </div>
+                            <p class="text-light mb-3">Promovemos activamente la adopción de sistemas solares fotovoltaicos para reducir la dependencia de combustibles fósiles.</p>
+                            <ul class="list-unstyled">
+                                <li class="mb-2 text-light"><i class="fas fa-check text-warning me-2"></i>Sistemas on-grid y off-grid</li>
+                                <li class="mb-2 text-light"><i class="fas fa-check text-warning me-2"></i>Almacenamiento con baterías</li>
+                                <li class="mb-2 text-light"><i class="fas fa-check text-warning me-2"></i>Monitoreo inteligente</li>
+                                <li class="mb-2 text-light"><i class="fas fa-check text-warning me-2"></i>Mantenimiento preventivo</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card bg-gray border-0 shadow-sm h-100 initiative-card">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="initiative-icon bg-warning text-dark rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 60px; height: 60px;">
+                                    <i class="fas fa-bolt fa-lg"></i>
+                                </div>
+                                <h5 class="fw-bold text-white mb-0">Eficiencia Energética</h5>
+                            </div>
+                            <p class="text-light mb-3">Implementamos tecnologías que optimizan el consumo energético y reducen el desperdicio eléctrico.</p>
+                            <ul class="list-unstyled">
+                                <li class="mb-2 text-light"><i class="fas fa-check text-warning me-2"></i>Iluminación LED inteligente</li>
+                                <li class="mb-2 text-light"><i class="fas fa-check text-warning me-2"></i>Sistemas de gestión energética</li>
+                                <li class="mb-2 text-light"><i class="fas fa-check text-warning me-2"></i>Automatización de cargas</li>
+                                <li class="mb-2 text-light"><i class="fas fa-check text-warning me-2"></i>Análisis de consumo</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card bg-gray border-0 shadow-sm h-100 initiative-card">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="initiative-icon bg-warning text-dark rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 60px; height: 60px;">
+                                    <i class="fas fa-recycle fa-lg"></i>
+                                </div>
+                                <h5 class="fw-bold text-white mb-0">Gestión de Residuos</h5>
+                            </div>
+                            <p class="text-light mb-3">Implementamos programas de reciclaje y reutilización de materiales eléctricos para minimizar residuos.</p>
+                            <ul class="list-unstyled">
+                                <li class="mb-2 text-light"><i class="fas fa-check text-warning me-2"></i>Reciclaje de cables y conductores</li>
+                                <li class="mb-2 text-light"><i class="fas fa-check text-warning me-2"></i>Reutilización de equipos</li>
+                                <li class="mb-2 text-light"><i class="fas fa-check text-warning me-2"></i>Disposición responsable</li>
+                                <li class="mb-2 text-light"><i class="fas fa-check text-warning me-2"></i>Certificaciones ambientales</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card bg-gray border-0 shadow-sm h-100 initiative-card">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="initiative-icon bg-warning text-dark rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 60px; height: 60px;">
+                                    <i class="fas fa-graduation-cap fa-lg"></i>
+                                </div>
+                                <h5 class="fw-bold text-white mb-0">Educación Ambiental</h5>
+                            </div>
+                            <p class="text-light mb-3">Educamos a nuestros clientes sobre prácticas sostenibles y el uso eficiente de la energía eléctrica.</p>
+                            <ul class="list-unstyled">
+                                <li class="mb-2 text-light"><i class="fas fa-check text-warning me-2"></i>Talleres de eficiencia energética</li>
+                                <li class="mb-2 text-light"><i class="fas fa-check text-warning me-2"></i>Guías de buenas prácticas</li>
+                                <li class="mb-2 text-light"><i class="fas fa-check text-warning me-2"></i>Capacitación técnica</li>
+                                <li class="mb-2 text-light"><i class="fas fa-check text-warning me-2"></i>Consultoría especializada</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-5">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="display-5 fw-bold text-white">Tecnologías <span class="text-warning">Verdes</span></h2>
+                    <p class="lead text-light">Innovación al servicio del medio ambiente</p>
+                </div>
+            </div>
+
+            <div class="row g-4 mb-5">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card bg-gray border-0 shadow-sm h-100 text-center tech-card">
+                        <div class="card-body p-4">
+                            <div class="tech-icon bg-warning text-dark rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                                <i class="fas fa-charging-station fa-2x"></i>
+                            </div>
+                            <h5 class="fw-bold text-white mb-3">Estaciones de Carga</h5>
+                            <p class="text-light">Instalación de puntos de carga para vehículos eléctricos, promoviendo la movilidad sostenible.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card bg-gray border-0 shadow-sm h-100 text-center tech-card">
+                        <div class="card-body p-4">
+                            <div class="tech-icon bg-warning text-dark rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                                <i class="fas fa-battery-full fa-2x"></i>
+                            </div>
+                            <h5 class="fw-bold text-white mb-3">Almacenamiento</h5>
+                            <p class="text-light">Sistemas de baterías de última generación para almacenar energía renovable de forma eficiente.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card bg-gray border-0 shadow-sm h-100 text-center tech-card">
+                        <div class="card-body p-4">
+                            <div class="tech-icon bg-warning text-dark rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                                <i class="fas fa-brain fa-2x"></i>
+                            </div>
+                            <h5 class="fw-bold text-white mb-3">Smart Grids</h5>
+                            <p class="text-light">Redes eléctricas inteligentes que optimizan la distribución y consumo de energía automáticamente.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="display-5 fw-bold text-white">Certificaciones <span class="text-warning">Ambientales</span></h2>
+                    <p class="lead text-light">Reconocimientos que avalan nuestro compromiso</p>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="card bg-gray border-0 shadow-sm h-100 text-center cert-card">
+                        <div class="card-body p-4">
+                            <img src="img/cert_iso14001.png" alt="ISO 14001" class="img-fluid mb-3" style="max-height: 80px;">
+                            <h6 class="fw-bold text-white">ISO 14001</h6>
+                            <p class="text-light small">Sistema de Gestión Ambiental</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="card bg-gray border-0 shadow-sm h-100 text-center cert-card">
+                        <div class="card-body p-4">
+                            <img src="img/cert_leed.png" alt="LEED" class="img-fluid mb-3" style="max-height: 80px;">
+                            <h6 class="fw-bold text-white">LEED</h6>
+                            <p class="text-light small">Construcción Sostenible</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="card bg-gray border-0 shadow-sm h-100 text-center cert-card">
+                        <div class="card-body p-4">
+                            <img src="img/cert_energy_star.png" alt="Energy Star" class="img-fluid mb-3" style="max-height: 80px;">
+                            <h6 class="fw-bold text-white">Energy Star</h6>
+                            <p class="text-light small">Eficiencia Energética</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="card bg-gray border-0 shadow-sm h-100 text-center cert-card">
+                        <div class="card-body p-4">
+                            <img src="img/cert_carbon_neutral.png" alt="Carbon Neutral" class="img-fluid mb-3" style="max-height: 80px;">
+                            <h6 class="fw-bold text-white">Carbon Neutral</h6>
+                            <p class="text-light small">Huella de Carbono Cero</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-warning">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h3 class="fw-bold text-dark mb-3">Únete al Cambio Sostenible</h3>
+                    <p class="text-dark mb-4">Haz parte de la revolución energética con soluciones eléctricas responsables con el medio ambiente.</p>
+                    <div class="d-flex justify-content-center gap-3 flex-wrap">
+                        <button class="btn btn-dark btn-lg cta-btn" onclick="openWhatsApp()">
+                            <i class="fas fa-leaf me-2"></i>Proyecto Verde
+                        </button>
+                        <a href="index.html#contacto" class="btn btn-outline-dark btn-lg cta-btn">
+                            <i class="fas fa-solar-panel me-2"></i>Energía Solar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-brand mb-4">
+                        <img src="img/Logo special.png" alt="Special Forces Electrician" height="50" class="mb-3">
+                        <h5 class="text-warning fw-bold">Special Forces Electrician</h5>
+                        <p class="text-light small">Especialistas en soluciones eléctricas integrales. Comprometidos con la calidad, seguridad e innovación en cada proyecto.</p>
+                    </div>
+
+                    <div class="social-links">
+                        <h6 class="text-warning mb-3">Síguenos</h6>
+                        <div class="d-flex gap-3">
+                            <a href="https://api.whatsapp.com/send/?phone=%2B573173945568&text=Hola%2C+me+interesa+obtener+una+cotización+para+un+proyecto+eléctrico.&type=phone_number&app_absent=0" class="text-light"><i class="fab fa-whatsapp fa-lg"></i></a>
+                            <a href="https://www.facebook.com/profile.php?id=100066506946924&rdid=HYPcBbHBQOdn7R8m&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1Bx8L4WTej%2F" class="text-light"><i class="fab fa-facebook fa-lg"></i></a>
+                            <a href="https://www.instagram.com/specialforceselectrician?igsh=MXBxc3U0a3BsZGwxaA==" class="text-light"><i class="fab fa-instagram fa-lg"></i></a>
+                            <a href="https://www.linkedin.com/company/special-forces-electrician-sas/" class="text-light"><i class="fab fa-linkedin fa-lg"></i></a>
+                            <a href="https://www.tiktok.com/@electricistaspecialescol?_t=ZS-8yWThzShAWa&_r=1" class="text-light"><i class="fab fa-tiktok fa-lg"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="text-warning mb-3">Enlaces</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#home" class="text-light text-decoration-none small">Inicio</a></li>
+                        <li class="mb-2"><a href="#servicios" class="text-light text-decoration-none small">Servicios</a></li>
+                        <li class="mb-2"><a href="#proyectos" class="text-light text-decoration-none small">Proyectos</a></li>
+                        <li class="mb-2"><a href="#contacto" class="text-light text-decoration-none small">Contacto</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none small">Blog</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="text-warning mb-3">Servicios</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="servicios.html" class="text-light text-decoration-none small">Instalaciones Eléctricas</a></li>
+                        <li class="mb-2"><a href="servicios.html" class="text-light text-decoration-none small">Redes de Datos</a></li>
+                        <li class="mb-2"><a href="servicios.html" class="text-light text-decoration-none small">Seguridad Electrónica</a></li>
+                        <li class="mb-2"><a href="servicios.html" class="text-light text-decoration-none small">Energía Renovable</a></li>
+                        <li class="mb-2"><a href="servicios.html" class="text-light text-decoration-none small">Mantenimiento</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="text-warning mb-3">Proyectos</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="Proyectos.html" class="text-light text-decoration-none small">Comerciales</a></li>
+                        <li class="mb-2"><a href="Proyectos.html" class="text-light text-decoration-none small">Industriales</a></li>
+                        <li class="mb-2"><a href="Proyectos.html" class="text-light text-decoration-none small">Residenciales</a></li>
+                        <li class="mb-2"><a href="Proyectos.html" class="text-light text-decoration-none small">Energía Solar</a></li>
+                        <li class="mb-2"><a href="Proyectos.html" class="text-light text-decoration-none small">Automatización</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="text-warning mb-3">Legal</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="Politicaprivacidad.html" class="text-light text-decoration-none small">Política de Privacidad</a></li>
+                        <li class="mb-2"><a href="terminosservicio.html" class="text-light text-decoration-none small">Términos de Servicio</a></li>
+                        <li class="mb-2"><a href="accesibilidad.html" class="text-light text-decoration-none small">Accesibilidad</a></li>
+                        <li class="mb-2"><a href="avisolegal.html" class="text-light text-decoration-none small">Aviso Legal</a></li>
+                        <li class="mb-2"><a href="certificaciones.html" class="text-light text-decoration-none small">Certificaciones</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="my-4 border-secondary">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="small text-muted mb-0">© 2025 Special Forces Electrician. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="d-flex justify-content-md-end gap-3">
+                        <a href="Politicaprivacidad.html" class="text-muted text-decoration-none small">Política de Privacidad</a>
+                        <a href="terminosservicio.html" class="text-muted text-decoration-none small">Términos de Servicio</a>
+                        <a href="accesibilidad.html" class="text-muted text-decoration-none small">Accesibilidad</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script/enfoquesostenible.js"></script>
+</body>
+</html>

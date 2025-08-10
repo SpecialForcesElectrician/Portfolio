@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accesibilidad - Special Forces Electrician</title>
+    <meta name="description" content="Compromiso con la accesibilidad web y física de Special Forces Electrician. Herramientas y características para una experiencia inclusiva.">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style/accesibilidad.css">
+</head>
+<body>
+    <!-- Skip to main content link -->
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="img/Logo special.png" alt="Special Forces Electrician" height="40" class="me-2">
+                <span class="fw-bold"><span class="text-white">Special Forces</span> <span class="text-warning">Electrician</span></span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Sobre Nosotros</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="quehacemos.html">¿Qué hacemos?</a></li>
+                            <li><a class="dropdown-item" href="visionmision.html">Visión y Misión</a></li>
+                            <li><a class="dropdown-item" href="enfoquesostenible.html">Enfoque Sostenible</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="servicios.html">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="proyectos.html">Proyectos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contacto">Contacto</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Blog</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#consejos">Consejos de Mantenimiento</a></li>
+                            <li><a class="dropdown-item" href="#energia-solar">Energía Solar</a></li>
+                            <li><a class="dropdown-item" href="#automatizacion">Automatización</a></li>
+                            <li><a class="dropdown-item" href="#domotica">Domótica</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="d-flex ms-3">
+                    <button class="btn btn-warning me-2" onclick="openWhatsApp()">
+                        <i class="fas fa-calculator me-1"></i>Cotizar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section bg-dark-gray" style="margin-top: 76px;" id="main-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <div class="hero-content">
+                        <div class="breadcrumb-nav mb-4">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb justify-content-center">
+                                    <li class="breadcrumb-item"><a href="index.html" class="text-warning">Inicio</a></li>
+                                    <li class="breadcrumb-item active text-light" aria-current="page">Accesibilidad</li>
+                                </ol>
+                            </nav>
+                        </div>
+                        <h1 class="display-4 fw-bold text-white mb-4">Compromiso con la <span class="text-warning">Accesibilidad</span></h1>
+                        <p class="lead text-light mb-4">Herramientas y características para una experiencia web inclusiva y accesible para todos</p>
+                        <div class="hero-stats">
+                            <div class="d-flex justify-content-center gap-4 flex-wrap">
+                                <div class="stat-item">
+                                    <i class="fas fa-universal-access fa-2x text-warning mb-2"></i>
+                                    <p class="small text-light mb-0">Inclusión Total</p>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-certificate fa-2x text-warning mb-2"></i>
+                                    <p class="small text-light mb-0">WCAG 2.1 AA</p>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-tools fa-2x text-warning mb-2"></i>
+                                    <p class="small text-light mb-0">Herramientas Adaptivas</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accessibility Tools Content -->
+    <section class="accessibility-content py-5 bg-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <!-- Last Updated -->
+                    <div class="alert alert-warning d-flex align-items-center mb-5" role="alert">
+                        <i class="fas fa-calendar-alt me-3"></i>
+                        <div>
+                            <strong>Última actualización:</strong> 3 de enero de 2025
+                        </div>
+                    </div>
+
+                    <!-- Introduction -->
+                    <div class="accessibility-section mb-5">
+                        <h2 class="section-title text-warning mb-4">
+                            <i class="fas fa-info-circle me-2"></i>Nuestro Compromiso
+                        </h2>
+                        <div class="content-card">
+                            <p class="text-light">En <strong class="text-warning">Special Forces Electrician S.A.S.</strong> creemos firmemente que todos merecen acceso igualitario a nuestros servicios y contenido digital, independientemente de sus capacidades físicas o cognitivas.</p>
+                            <p class="text-light">Hemos implementado múltiples herramientas y características de accesibilidad para garantizar que nuestra plataforma sea usable por personas con diversas necesidades y preferencias.</p>
+                            <div class="important-notice mt-4 p-3 bg-warning text-dark rounded">
+                                <i class="fas fa-heart me-2"></i>
+                                <strong>Importante:</strong> La accesibilidad no es solo una característica, es un derecho fundamental.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Accessibility Tools -->
+                    <div class="accessibility-section mb-5">
+                        <h2 class="section-title text-warning mb-4">
+                            <i class="fas fa-tools me-2"></i>Herramientas de Accesibilidad
+                        </h2>
+                        <div class="content-card">
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <div class="tool-item">
+                                        <h5 class="text-warning mb-3">
+                                            <i class="fas fa-text-height me-2"></i>Control de Texto
+                                        </h5>
+                                        <p class="text-light mb-3">Ajusta el tamaño del texto para una mejor legibilidad según tus necesidades visuales.</p>
+                                        <div class="tool-controls">
+                                            <button class="btn btn-sm btn-outline-warning me-2" id="decrease-font" aria-label="Disminuir tamaño de texto">A-</button>
+                                            <button class="btn btn-sm btn-outline-warning me-2" id="normal-font" aria-label="Tamaño normal de texto">A</button>
+                                            <button class="btn btn-sm btn-outline-warning" id="increase-font" aria-label="Aumentar tamaño de texto">A+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="tool-item">
+                                        <h5 class="text-warning mb-3">
+                                            <i class="fas fa-palette me-2"></i>Modos de Contraste
+                                        </h5>
+                                        <p class="text-light mb-3">Cambia el contraste de colores para mejorar la visibilidad del contenido.</p>
+                                        <div class="tool-controls">
+                                            <button class="btn btn-sm btn-outline-warning me-2" id="normal-contrast" aria-label="Contraste normal">Normal</button>
+                                            <button class="btn btn-sm btn-outline-warning me-2" id="high-contrast" aria-label="Alto contraste">Alto</button>
+                                            <button class="btn btn-sm btn-outline-warning" id="dark-mode" aria-label="Modo oscuro">Oscuro</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="tool-item">
+                                        <h5 class="text-warning mb-3">
+                                            <i class="fas fa-mouse-pointer me-2"></i>Ayudas de Navegación
+                                        </h5>
+                                        <p class="text-light mb-3">Herramientas para mejorar la navegación y el enfoque en el contenido.</p>
+                                        <div class="tool-controls">
+                                            <button class="btn btn-sm btn-outline-warning me-2" id="focus-mode" aria-label="Activar modo de enfoque">Enfoque</button>
+                                            <button class="btn btn-sm btn-outline-warning me-2" id="reading-guide" aria-label="Activar guía de lectura">Guía</button>
+                                            <button class="btn btn-sm btn-outline-warning" id="cursor-size" aria-label="Aumentar cursor">Cursor+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="tool-item">
+                                        <h5 class="text-warning mb-3">
+                                            <i class="fas fa-volume-up me-2"></i>Controles de Audio
+                                        </h5>
+                                        <p class="text-light mb-3">Funciones de audio y control de efectos visuales dinámicos.</p>
+                                        <div class="tool-controls">
+                                            <button class="btn btn-sm btn-outline-warning me-2" id="text-to-speech" aria-label="Activar lectura de texto">Leer</button>
+                                            <button class="btn btn-sm btn-outline-warning me-2" id="pause-animations" aria-label="Pausar animaciones">Pausar</button>
+                                            <button class="btn btn-sm btn-outline-warning" id="sound-effects" aria-label="Efectos de sonido">Sonidos</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Implemented Features -->
+                    <div class="accessibility-section mb-5">
+                        <h2 class="section-title text-warning mb-4">
+                            <i class="fas fa-check-circle me-2"></i>Características Implementadas
+                        </h2>
+                        <div class="content-card">
+                            <div class="feature-item mb-4">
+                                <h5 class="text-warning mb-3">
+                                    <i class="fas fa-keyboard me-2"></i>Navegación por Teclado
+                                </h5>
+                                <p class="text-light">Todos los elementos interactivos son accesibles mediante navegación por teclado usando Tab, Enter y teclas de flecha. Atajos disponibles: Alt+1 (contenido principal), Alt+2 (navegación).</p>
+                                <div class="feature-status">
+                                    <span class="badge bg-success">Implementado</span>
+                                </div>
+                            </div>
+
+                            <div class="feature-item mb-4">
+                                <h5 class="text-warning mb-3">
+                                    <i class="fas fa-eye me-2"></i>Compatibilidad con Lectores de Pantalla
+                                </h5>
+                                <p class="text-light">Compatibilidad completa con NVDA, JAWS, VoiceOver y otros lectores de pantalla mediante etiquetas ARIA semánticas y estructura HTML apropiada.</p>
+                                <div class="feature-status">
+                                    <span class="badge bg-success">Implementado</span>
+                                </div>
+                            </div>
+
+                            <div class="feature-item mb-4">
+                                <h5 class="text-warning mb-3">
+                                    <i class="fas fa-adjust me-2"></i>Alto Contraste y Modo Oscuro
+                                </h5>
+                                <p class="text-light">Relación de contraste mínima de 4.5:1 para texto normal y 3:1 para texto grande según las pautas WCAG 2.1. Incluye modo oscuro para reducir la fatiga visual.</p>
+                                <div class="feature-status">
+                                    <span class="badge bg-success">Implementado</span>
+                                </div>
+                            </div>
+
+                            <div class="feature-item mb-4">
+                                <h5 class="text-warning mb-3">
+                                    <i class="fas fa-mobile-alt me-2"></i>Diseño Responsive
+                                </h5>
+                                <p class="text-light">Adaptación completa a diferentes dispositivos y orientaciones, incluyendo soporte para zoom hasta 200% sin pérdida de funcionalidad.</p>
+                                <div class="feature-status">
+                                    <span class="badge bg-success">Implementado</span>
+                                </div>
+                            </div>
+
+                            <div class="feature-item mb-4">
+                                <h5 class="text-warning mb-3">
+                                    <i class="fas fa-language me-2"></i>Contenido Semántico
+                                </h5>
+                                <p class="text-light">Uso correcto de elementos HTML semánticos, estructura de encabezados jerárquica y etiquetas descriptivas para mejor comprensión.</p>
+                                <div class="feature-status">
+                                    <span class="badge bg-success">Implementado</span>
+                                </div>
+                            </div>
+
+                            <div class="feature-item">
+                                <h5 class="text-warning mb-3">
+                                    <i class="fas fa-clock me-2"></i>Control de Tiempo y Animaciones
+                                </h5>
+                                <p class="text-light">Los usuarios pueden pausar, detener o ajustar límites de tiempo en contenido dinámico. Control total sobre animaciones y efectos visuales.</p>
+                                <div class="feature-status">
+                                    <span class="badge bg-warning text-dark">En Desarrollo</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Standards Compliance -->
+                    <div class="accessibility-section mb-5">
+                        <h2 class="section-title text-warning mb-4">
+                            <i class="fas fa-certificate me-2"></i>Cumplimiento de Estándares
+                        </h2>
+                        <div class="content-card">
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <div class="compliance-item">
+                                        <div class="compliance-header mb-3">
+                                            <i class="fas fa-award fa-3x text-warning mb-3"></i>
+                                            <h5 class="text-warning">WCAG 2.1 Nivel AA</h5>
+                                            <p class="text-light small">Web Content Accessibility Guidelines</p>
+                                        </div>
+                                        <ul class="text-light list-unstyled">
+                                            <li><i class="fas fa-check text-success me-2"></i> Perceptible</li>
+                                            <li><i class="fas fa-check text-success me-2"></i> Operable</li>
+                                            <li><i class="fas fa-check text-success me-2"></i> Comprensible</li>
+                                            <li><i class="fas fa-check text-success me-2"></i> Robusto</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="compliance-item">
+                                        <div class="compliance-header mb-3">
+                                            <i class="fas fa-balance-scale fa-3x text-warning mb-3"></i>
+                                            <h5 class="text-warning">ADA Compliance</h5>
+                                            <p class="text-light small">Americans with Disabilities Act</p>
+                                        </div>
+                                        <ul class="text-light list-unstyled">
+                                            <li><i class="fas fa-check text-success me-2"></i> Título III</li>
+                                            <li><i class="fas fa-check text-success me-2"></i> Acceso Igualitario</li>
+                                            <li><i class="fas fa-check text-success me-2"></i> Servicios Públicos</li>
+                                            <li><i class="fas fa-check text-success me-2"></i> No Discriminación</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Keyboard Shortcuts -->
+                    <div class="accessibility-section mb-5">
+                        <h2 class="section-title text-warning mb-4">
+                            <i class="fas fa-keyboard me-2"></i>Atajos de Teclado
+                        </h2>
+                        <div class="content-card">
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <div class="shortcut-item">
+                                        <h5 class="text-warning mb-3">Navegación General</h5>
+                                        <ul class="text-light">
+                                            <li><kbd class="bg-warning text-dark">Alt + 1</kbd> - Ir al contenido principal</li>
+                                            <li><kbd class="bg-warning text-dark">Alt + 2</kbd> - Ir a la navegación</li>
+                                            <li><kbd class="bg-warning text-dark">Tab</kbd> - Siguiente elemento</li>
+                                            <li><kbd class="bg-warning text-dark">Shift + Tab</kbd> - Elemento anterior</li>
+                                            <li><kbd class="bg-warning text-dark">Escape</kbd> - Cerrar menús/modales</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="shortcut-item">
+                                        <h5 class="text-warning mb-3">Herramientas de Accesibilidad</h5>
+                                        <ul class="text-light">
+                                            <li><kbd class="bg-warning text-dark">Ctrl + +</kbd> - Aumentar texto</li>
+                                            <li><kbd class="bg-warning text-dark">Ctrl + -</kbd> - Disminuir texto</li>
+                                            <li><kbd class="bg-warning text-dark">Ctrl + 0</kbd> - Restablecer texto</li>
+                                            <li><kbd class="bg-warning text-dark">Enter</kbd> - Activar elemento</li>
+                                            <li><kbd class="bg-warning text-dark">Espacio</kbd> - Activar botón</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Support Contact -->
+                    <div class="accessibility-section mb-5">
+                        <h2 class="section-title text-warning mb-4">
+                            <i class="fas fa-headset me-2"></i>Soporte de Accesibilidad
+                        </h2>
+                        <div class="content-card">
+                            <p class="text-light mb-4">Si encuentras alguna barrera de accesibilidad en nuestro sitio web o necesitas asistencia adicional, no dudes en contactarnos. Nuestro equipo especializado está disponible para ayudarte.</p>
+                            
+                            <div class="row g-4">
+                                <div class="col-md-4">
+                                    <div class="contact-method text-center">
+                                        <i class="fas fa-phone fa-2x text-warning mb-3"></i>
+                                        <h5 class="text-warning">Teléfono</h5>
+                                        <p class="text-light">+57 317 3945568</p>
+                                        <p class="text-light small">Línea directa de accesibilidad</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="contact-method text-center">
+                                        <i class="fas fa-envelope fa-2x text-warning mb-3"></i>
+                                        <h5 class="text-warning">Email</h5>
+                                        <p class="text-light">specialforceselectrician</p>
+                                        <p class="text-light small">Asunto: Consulta de Accesibilidad</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="contact-method text-center">
+                                        <i class="fab fa-whatsapp fa-2x text-warning mb-3"></i>
+                                        <h5 class="text-warning">WhatsApp</h5>
+                                        <p class="text-light">+57 317 7342954</p>
+                                        <p class="text-light small">Soporte 24/7</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-4 text-center">
+                                <button class="btn btn-warning btn-lg me-3" onclick="openWhatsApp()">
+                                    <i class="fab fa-whatsapp me-2"></i>Consulta por WhatsApp
+                                </button>
+                                <button class="btn btn-outline-warning btn-lg" onclick="sendEmail()">
+                                    <i class="fas fa-envelope me-2"></i>Enviar Email
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Response Commitment -->
+                    <div class="accessibility-section mb-5">
+                        <h2 class="section-title text-warning mb-4">
+                            <i class="fas fa-clock me-2"></i>Compromiso de Respuesta
+                        </h2>
+                        <div class="content-card">
+                            <div class="commitment-item mb-4">
+                                <h5 class="text-warning mb-3">Tiempos de Respuesta Garantizados</h5>
+                                <div class="row g-3">
+                                    <div class="col-md-4">
+                                        <div class="time-commitment text-center">
+                                            <i class="fas fa-clock fa-3x text-warning mb-3"></i>
+                                            <h6 class="text-warning">24 Horas</h6>
+                                            <p class="text-light small">Respuesta inicial a consultas</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="time-commitment text-center">
+                                            <i class="fas fa-tools fa-3x text-warning mb-3"></i>
+                                            <h6 class="text-warning">7 Días Hábiles</h6>
+                                            <p class="text-light small">Implementación de mejoras</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="time-commitment text-center">
+                                            <i class="fas fa-phone fa-3x text-warning mb-3"></i>
+                                            <h6 class="text-warning">Inmediato</h6>
+                                            <p class="text-light small">Soporte telefónico urgente</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="alert alert-info mt-4">
+                                <i class="fas fa-heart me-2"></i>
+                                <strong>Nuestro Compromiso:</strong> Trabajamos continuamente para mejorar la accesibilidad de nuestros servicios y garantizar una experiencia inclusiva para todos nuestros usuarios.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" onclick="scrollToTop()" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Brand and Description -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-brand mb-4">
+                        <img src="img/Logo special.png" alt="Special Forces Electrician" height="50" class="mb-3">
+                        <h5 class="text-warning fw-bold">Special Forces Electrician</h5>
+                        <p class="text-light small">Especialistas en soluciones eléctricas integrales. Comprometidos con la calidad, seguridad e innovación en cada proyecto.</p>
+                    </div>
+
+                    <div class="social-links">
+                        <h6 class="text-warning mb-3">Síguenos</h6>
+                        <div class="d-flex gap-3">
+                            <a href="https://api.whatsapp.com/send/?phone=%2B573173945568&text=Hola%2C+me+interesa+obtener+una+cotización+para+un+proyecto+eléctrico.&type=phone_number&app_absent=0" class="text-light"><i class="fab fa-whatsapp fa-lg"></i></a>
+                            <a href="https://www.facebook.com/profile.php?id=100066506946924&rdid=HYPcBbHBQOdn7R8m&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1Bx8L4WTej%2F" class="text-light"><i class="fab fa-facebook fa-lg"></i></a>
+                            <a href="https://www.instagram.com/specialforceselectrician?igsh=MXBxc3U0a3BsZGwxaA==" class="text-light"><i class="fab fa-instagram fa-lg"></i></a>
+                            <a href="https://www.linkedin.com/company/special-forces-electrician-sas/" class="text-light"><i class="fab fa-linkedin fa-lg"></i></a>
+                            <a href="https://www.tiktok.com/@electricistaspecialescol?_t=ZS-8yWThzShAWa&_r=1" class="text-light"><i class="fab fa-tiktok fa-lg"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="text-warning mb-3">Enlaces</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#home" class="text-light text-decoration-none small">Inicio</a></li>
+                        <li class="mb-2"><a href="#servicios" class="text-light text-decoration-none small">Servicios</a></li>
+                        <li class="mb-2"><a href="#proyectos" class="text-light text-decoration-none small">Proyectos</a></li>
+                        <li class="mb-2"><a href="#contacto" class="text-light text-decoration-none small">Contacto</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none small">Blog</a></li>
+                    </ul>
+                </div>
+
+
+                <!-- Services -->
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="text-warning mb-3">Servicios</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="servicios.html" class="text-light text-decoration-none small">Instalaciones Eléctricas</a></li>
+                        <li class="mb-2"><a href="servicios.html" class="text-light text-decoration-none small">Redes de Datos</a></li>
+                        <li class="mb-2"><a href="servicios.html" class="text-light text-decoration-none small">Seguridad Electrónica</a></li>
+                        <li class="mb-2"><a href="servicios.html" class="text-light text-decoration-none small">Energía Renovable</a></li>
+                        <li class="mb-2"><a href="servicios.html" class="text-light text-decoration-none small">Mantenimiento</a></li>
+                    </ul>
+                </div>
+
+
+                <!-- Projects -->
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="text-warning mb-3">Proyectos</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="Proyectos.html" class="text-light text-decoration-none small">Comerciales</a></li>
+                        <li class="mb-2"><a href="Proyectos.html" class="text-light text-decoration-none small">Industriales</a></li>
+                        <li class="mb-2"><a href="Proyectos.html" class="text-light text-decoration-none small">Residenciales</a></li>
+                        <li class="mb-2"><a href="Proyectos.html" class="text-light text-decoration-none small">Energía Solar</a></li>
+                        <li class="mb-2"><a href="Proyectos.html" class="text-light text-decoration-none small">Automatización</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal -->
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="text-warning mb-3">Legal</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="Politicaprivacidad.html" class="text-light text-decoration-none small">Política de Privacidad</a></li>
+                        <li class="mb-2"><a href="terminosservicio.html" class="text-light text-decoration-none small">Términos de Servicio</a></li>
+                        <li class="mb-2"><a href="accesibilidad.html" class="text-light text-decoration-none small">Accesibilidad</a></li>
+                        <li class="mb-2"><a href="avisolegal.html" class="text-light text-decoration-none small">Aviso Legal</a></li>
+                        <li class="mb-2"><a href="certificaciones.html" class="text-light text-decoration-none small">Certificaciones</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="my-4 border-secondary">
+
+            <!-- Copyright -->
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="small text-muted mb-0">© 2025 Special Forces Electrician. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="d-flex justify-content-md-end gap-3">
+                        <a href="Politicaprivacidad.html" class="text-muted text-decoration-none small">Política de Privacidad</a>
+                        <a href="terminosservicio.html" class="text-muted text-decoration-none small">Términos de Servicio</a>
+                        <a href="accesibilidad.html" class="text-muted text-decoration-none small">Accesibilidad</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Live region for announcements -->
+    <div id="accessibility-announcements" aria-live="polite" aria-atomic="true" class="sr-only"></div>
+
+    <!-- Reading Guide -->
+    <div id="reading-guide-line"></div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="script/accesibilidad.js"></script>
+</body>
+</html>

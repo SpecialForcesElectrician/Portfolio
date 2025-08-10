@@ -1,0 +1,462 @@
+/* ===== ENFOQUE SOSTENIBLE - ESTILOS ESPECÍFICOS ===== */
+
+/* Variables CSS */
+:root {
+  --primary-color: #ffc107;
+  --secondary-color: #212529;
+  --dark-gray: #2c2c2c;
+  --light-gray: #3a3a3a;
+  --success-color: #28a745;
+  --info-color: #17a2b8;
+  --warning-color: #ffc107;
+  --danger-color: #dc3545;
+  --transition: all 0.3s ease;
+}
+
+/* Fuentes */
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--secondary-color);
+  color: #ffffff;
+  line-height: 1.6;
+}
+
+/* Colores de fondo personalizados */
+.bg-dark-gray {
+  background-color: var(--dark-gray) !important;
+}
+
+.bg-gray {
+  background-color: var(--light-gray) !important;
+}
+
+.bg-black {
+  background-color: #000000 !important;
+}
+
+/* Navegación */
+.navbar {
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+  transition: var(--transition);
+}
+
+.navbar-brand {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.nav-link {
+  font-weight: 500;
+  transition: var(--transition);
+  position: relative;
+}
+
+.nav-link:hover {
+  color: var(--primary-color) !important;
+  transform: translateY(-2px);
+}
+
+.nav-link.active {
+  color: var(--primary-color) !important;
+}
+
+.dropdown-menu {
+  background-color: var(--light-gray);
+  border: 1px solid rgba(255, 193, 7, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.dropdown-item {
+  color: #ffffff;
+  transition: var(--transition);
+}
+
+.dropdown-item:hover,
+.dropdown-item.active {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+/* Hero Section - CORREGIDO: Se eliminó el margin-top y se añadió padding-top */
+.hero-section {
+  position: relative;
+  overflow: hidden;
+  margin-top: 0 !important; /* Asegura que no haya espacio externo */
+  padding-top: 200px; /* Añade espacio interno para el contenido */
+  min-height: 60vh;
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+.breadcrumb {
+  background: none;
+  padding: 0;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: "›";
+  color: var(--primary-color);
+}
+
+/* Tarjetas de Estadísticas */
+.stat-card {
+  transition: var(--transition);
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+}
+
+.stat-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--success-color));
+  transform: scaleX(0);
+  transition: var(--transition);
+}
+
+.stat-card:hover::before {
+  transform: scaleX(1);
+}
+
+.stat-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(255, 193, 7, 0.2);
+}
+
+.stat-icon {
+  transition: var(--transition);
+}
+
+.stat-card:hover .stat-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Contador animado */
+.counter {
+  font-size: 3rem;
+  font-weight: 800;
+  background: linear-gradient(45deg, var(--primary-color), #fff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Tarjetas de Iniciativas */
+.initiative-card {
+  transition: var(--transition);
+  border-radius: 15px;
+  position: relative;
+  overflow: hidden;
+}
+
+.initiative-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 193, 7, 0.05) 0%, rgba(40, 167, 69, 0.05) 100%);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.initiative-card:hover::before {
+  opacity: 1;
+}
+
+.initiative-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.initiative-icon {
+  transition: var(--transition);
+}
+
+.initiative-card:hover .initiative-icon {
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px rgba(255, 193, 7, 0.3);
+}
+
+/* Tarjetas de Tecnología */
+.tech-card {
+  transition: var(--transition);
+  border-radius: 15px;
+  position: relative;
+  overflow: hidden;
+}
+
+.tech-card::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(255, 193, 7, 0.1) 0%, transparent 70%);
+  transition: var(--transition);
+  transform: translate(-50%, -50%);
+}
+
+.tech-card:hover::after {
+  width: 300px;
+  height: 300px;
+}
+
+.tech-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(255, 193, 7, 0.15);
+}
+
+.tech-icon {
+  transition: var(--transition);
+  position: relative;
+  z-index: 2;
+}
+
+.tech-card:hover .tech-icon {
+  transform: scale(1.15) rotate(-5deg);
+}
+
+/* Tarjetas de Certificaciones */
+.cert-card {
+  transition: var(--transition);
+  border-radius: 15px;
+  position: relative;
+}
+
+.cert-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(255, 193, 7, 0.2);
+}
+
+.cert-card img {
+  transition: var(--transition);
+  filter: grayscale(100%);
+}
+
+.cert-card:hover img {
+  filter: grayscale(0%);
+  transform: scale(1.1);
+}
+
+/* Call to Action */
+.cta-btn {
+  transition: var(--transition);
+  border-radius: 50px;
+  padding: 12px 30px;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: var(--transition);
+}
+
+.cta-btn:hover::before {
+  left: 100%;
+}
+
+.cta-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer */
+footer {
+  position: relative;
+}
+
+footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary-color), var(--success-color), var(--info-color));
+}
+
+.footer-brand img {
+  transition: var(--transition);
+}
+
+.footer-brand:hover img {
+  transform: scale(1.1);
+}
+
+.social-links a {
+  transition: var(--transition);
+  display: inline-block;
+}
+
+.social-links a:hover {
+  color: var(--primary-color) !important;
+  transform: translateY(-3px) scale(1.2);
+}
+
+/* Animaciones específicas para sostenibilidad */
+@keyframes leafFloat {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+}
+
+@keyframes solarPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 20px rgba(255, 193, 7, 0);
+  }
+}
+
+.fa-leaf {
+  animation: leafFloat 3s ease-in-out infinite;
+}
+
+.fa-solar-panel {
+  animation: solarPulse 2s ease-in-out infinite;
+}
+
+/* Efectos de hover específicos para sostenibilidad */
+.fa-sun:hover {
+  color: #ff6b35 !important;
+  text-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
+}
+
+.fa-bolt:hover {
+  color: #4ecdc4 !important;
+  text-shadow: 0 0 20px rgba(78, 205, 196, 0.5);
+}
+
+.fa-recycle:hover {
+  color: #45b7d1 !important;
+  text-shadow: 0 0 20px rgba(69, 183, 209, 0.5);
+}
+
+.fa-graduation-cap:hover {
+  color: #96ceb4 !important;
+  text-shadow: 0 0 20px rgba(150, 206, 180, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .display-3 {
+    font-size: 2.5rem;
+  }
+
+  .display-5 {
+    font-size: 2rem;
+  }
+
+  .counter {
+    font-size: 2.5rem;
+  }
+
+  .stat-card,
+  .initiative-card,
+  .tech-card,
+  .cert-card {
+    margin-bottom: 1rem;
+  }
+
+  .cta-btn {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  /* CORREGIDO: Ajuste para móviles */
+  .hero-section {
+    margin-top: 0 !important;
+    padding-top: 100px; /* Ajuste de padding para móviles */
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-section {
+    min-height: 50vh;
+    margin-top: 0 !important; /* Asegura que no haya espacio externo */
+    padding-top: 80px; /* Ajuste de padding para pantallas muy pequeñas */
+  }
+
+  .display-3 {
+    font-size: 2rem;
+  }
+
+  .counter {
+    font-size: 2rem;
+  }
+
+  .stat-icon,
+  .tech-icon {
+    width: 60px !important;
+    height: 60px !important;
+  }
+
+  .stat-icon i,
+  .tech-icon i {
+    font-size: 1.5rem !important;
+  }
+}
+
+/* Efectos de scroll suave */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Animación de entrada para elementos */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Estilos para el loading de contadores */
+.counter-loading {
+  color: rgba(255, 193, 7, 0.5);
+}
+
+/* Efectos especiales para la página de sostenibilidad */
+.eco-gradient {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.green-glow {
+  box-shadow: 0 0 30px rgba(40, 167, 69, 0.3);
+}
+
+.sustainable-border {
+  border: 2px solid transparent;
+  background: linear-gradient(var(--light-gray), var(--light-gray)) padding-box,
+    linear-gradient(45deg, var(--success-color), var(--primary-color)) border-box;
+}
