@@ -1,7 +1,7 @@
 // ===== VARIABLES GLOBALES =====
-const phoneNumber = "573001234567"; // Número de WhatsApp
-const emailAddress = "info@specialforceselectrician.com";
-const companyPhone = "+5712345678";
+const phoneNumber = "+573173945568"; // Número de WhatsApp
+const emailAddress = "specialforceselectriciansas@gmail.com";
+const companyPhone = "+573173945568";
 
 // ===== FUNCIONES DE CONTACTO =====
 
