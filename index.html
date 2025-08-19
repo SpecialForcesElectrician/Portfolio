@@ -70,7 +70,7 @@
                                 </ul>
                             </div>
                             <div class="hero-buttons">
-                                <a href="servicios.html" class="btn btn-warning btn-lg me-3">
+                                <a href="servicios.html" class="btn btn-warning btn-lg me-4">
                                     <i class="fas fa-eye me-2"></i>Ver Más
                                 </a>
                                 <button class="btn btn-outline-warning btn-lg" onclick="openWhatsApp()"><i class="fas fa-calculator me-2"></i>Cotizar</button>
@@ -97,7 +97,7 @@
                                 </ul>
                             </div>
                             <div class="hero-buttons">
-                                <a href="servicios.html" class="btn btn-warning btn-lg me-3">
+                                <a href="servicios.html" class="btn btn-warning btn-lg me-4">
                                     <i class="fas fa-eye me-2"></i>Ver Más
                                 </a>
                                 <button class="btn btn-outline-warning btn-lg" onclick="openWhatsApp()"><i class="fas fa-calculator me-2"></i>Cotizar</button>
@@ -124,7 +124,7 @@
                                 </ul>
                             </div>
                             <div class="hero-buttons">
-                                <a href="servicios.html" class="btn btn-warning btn-lg me-3">
+                                <a href="servicios.html" class="btn btn-warning btn-lg me-4">
                                     <i class="fas fa-eye me-2"></i>Ver Más
                                 </a>
                                 <button class="btn btn-outline-warning btn-lg" onclick="openWhatsApp()"><i class="fas fa-calculator me-2"></i>Cotizar</button>
@@ -151,8 +151,8 @@
                                 </ul>
                             </div>
                             <div class="hero-buttons">
-                                <a href="servicios.html" class="btn btn-warning btn-lg me-3">
-                                    <i class="fas fa-eye me-2"></i>Ver Más
+                                <a href="servicios.html" class="btn btn-warning btn-lg me-4">
+                                    <i class="fas eye me-2"></i>Ver Más
                                 </a>
                                 <button class="btn btn-outline-warning btn-lg" onclick="openWhatsApp()"><i class="fas fa-calculator me-2"></i>Cotizar</button>
                             </div>
@@ -178,7 +178,7 @@
                                 </ul>
                             </div>
                             <div class="hero-buttons">
-                                <a href="servicios.html" class="btn btn-warning btn-lg me-3">
+                                <a href="servicios.html" class="btn btn-warning btn-lg me-4">
                                     <i class="fas fa-eye me-2"></i>Ver Más
                                 </a>
                                 <button class="btn btn-outline-warning btn-lg" onclick="openWhatsApp()"><i class="fas fa-calculator me-2"></i>Cotizar</button>
@@ -205,7 +205,7 @@
                                 </ul>
                             </div>
                             <div class="hero-buttons">
-                                <a href="servicios.html" class="btn btn-warning btn-lg me-3">
+                                <a href="servicios.html" class="btn btn-warning btn-lg me-4">
                                     <i class="fas fa-eye me-2"></i>Ver Más
                                 </a>
                                 <button class="btn btn-outline-warning btn-lg" onclick="openWhatsApp()"><i class="fas fa-calculator me-2"></i>Cotizar</button>
@@ -216,10 +216,11 @@
             </div>
         </div>
 
-        <button class="btn btn-warning position-absolute start-0 top-50 translate-middle-y ms-3 hero-nav-btn" onclick="previousSlide()">
+        <!-- Ocultar botones de navegación en móvil -->
+        <button class="btn btn-warning position-absolute start-0 top-50 translate-middle-y ms-3 hero-nav-btn d-none d-md-block" onclick="previousSlide()">
             <i class="fas fa-chevron-left"></i>
         </button>
-        <button class="btn btn-warning position-absolute end-0 top-50 translate-middle-y me-3 hero-nav-btn" onclick="nextSlide()">
+        <button class="btn btn-warning position-absolute end-0 top-50 translate-middle-y me-3 hero-nav-btn d-none d-md-block" onclick="nextSlide()">
             <i class="fas fa-chevron-right"></i>
         </button>
         <div class="position-absolute bottom-0 start-50 translate-middle-x mb-4 hero-indicators">
@@ -443,7 +444,7 @@
 
             <div class="position-relative">
                 <div class="testimonials-carousel-container">
-                    <div class="testimonials-wrapper">
+                    <div class="testimonials-wrapper" id="testimonialsWrapper">
                         <div class="testimonial-grid-card">
                             <div class="testimonial-stars">
                                 <i class="fas fa-star"></i>
@@ -609,6 +610,64 @@
                             <div class="testimonial-author">
                                 <div class="testimonial-info">
                                     <h6>Andrés Castro</h6>
+                                    <p>Opiniones de <strong>Google Business.</strong></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Agregando más opiniones -->
+                        <div class="testimonial-grid-card">
+                            <div class="testimonial-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="testimonial-text">
+                                La modernización de nuestro sistema eléctrico fue un éxito total. Ahora tenemos mayor eficiencia y seguridad.
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="testimonial-info">
+                                    <h6>Fernando Ruiz</h6>
+                                    <p>Opiniones de <strong>Google Business.</strong></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="testimonial-grid-card">
+                            <div class="testimonial-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="testimonial-text">
+                                Excelente trabajo en la instalación de fibra óptica. La velocidad de internet mejoró considerablemente en toda la empresa.
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="testimonial-info">
+                                    <h6>Carmen Jiménez</h6>
+                                    <p>Opiniones de <strong>Google Business.</strong></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="testimonial-grid-card">
+                            <div class="testimonial-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="testimonial-text">
+                                El sistema de respaldo eléctrico que instalaron nos ha salvado de múltiples cortes de energía. Muy confiables.
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="testimonial-info">
+                                    <h6>Diego Martínez</h6>
                                     <p>Opiniones de <strong>Google Business.</strong></p>
                                 </div>
                             </div>
@@ -849,7 +908,6 @@
                     <div class="footer-brand mb-4">
                         <img src="img/Logo special.png" alt="Special Forces Electrician" height="50" class="mb-3">
                         <h5 class="text-warning fw-bold">Special Forces Electrician</h5>
-                        <p class="text-light small">Especialistas en soluciones eléctricas integrales con más de <strong>5 años de experiencia</strong>. Comprometidos con la calidad, seguridad e innovación en cada proyecto.</p>
                     </div>
 
                     <div class="social-links">

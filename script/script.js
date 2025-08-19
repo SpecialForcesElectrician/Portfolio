@@ -1,54 +1,78 @@
 // Global Variables
 let currentSlide = 0
 let heroInterval
-const bootstrap = window.bootstrap // Declare the bootstrap variable
-
-let currentTestimonialIndex = 0 // Para el carrusel de testimonios
+const bootstrap = window.bootstrap
+let currentTestimonialIndex = 0
+const testimonialAnimationPaused = false
 
 // DOM Content Loaded
 document.addEventListener("DOMContentLoaded", () => {
-  // Initialize hero carousel
   initHeroCarousel()
-
-  // Initialize smooth scrolling for navigation links
   initSmoothScrolling()
-
-  // Initialize animations when DOM is loaded
   animateOnScroll()
 
-  // Add newsletter subscription to button
+  initMobileNavbar()
+
+  initTestimonialCarousel()
+
   const newsletterButton = document.querySelector(".newsletter .btn-warning")
   if (newsletterButton) {
     newsletterButton.addEventListener("click", subscribeNewsletter)
   }
+})
 
-  // Mobile menu close on link click
-  const navLinks = document.querySelectorAll(".navbar-nav .nav-link")
+function initMobileNavbar() {
+  const navLinks = document.querySelectorAll(".navbar-nav .nav-link, .dropdown-item")
   const navbarCollapse = document.querySelector(".navbar-collapse")
+  const navbarToggler = document.querySelector(".navbar-toggler")
 
   navLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-      if (navbarCollapse && navbarCollapse.classList.contains("show")) {
-        try {
-          const bsCollapse = bootstrap.Collapse.getOrCreateInstance(navbarCollapse)
-          bsCollapse.hide()
-        } catch (error) {
-          navbarCollapse.classList.remove("show")
+    link.addEventListener("click", (e) => {
+      // Si es un enlace interno (comienza con #), hacer scroll suave
+      if (link.getAttribute("href") && link.getAttribute("href").startsWith("#")) {
+        e.preventDefault()
+        const targetId = link.getAttribute("href").substring(1)
+        const targetElement = document.getElementById(targetId)
+
+        if (targetElement) {
+          // Cerrar el navbar primero
+          if (navbarCollapse && navbarCollapse.classList.contains("show")) {
+            try {
+              const bsCollapse = bootstrap.Collapse.getOrCreateInstance(navbarCollapse)
+              bsCollapse.hide()
+            } catch (error) {
+              navbarCollapse.classList.remove("show")
+            }
+          }
+
+          // Hacer scroll después de un pequeño delay
+          setTimeout(() => {
+            const offsetTop = targetElement.offsetTop - 80
+            window.scrollTo({
+              top: offsetTop,
+              behavior: "smooth",
+            })
+          }, 300)
+        }
+      } else {
+        // Para enlaces externos, cerrar navbar y navegar
+        if (navbarCollapse && navbarCollapse.classList.contains("show")) {
+          try {
+            const bsCollapse = bootstrap.Collapse.getOrCreateInstance(navbarCollapse)
+            bsCollapse.hide()
+          } catch (error) {
+            navbarCollapse.classList.remove("show")
+          }
         }
       }
     })
   })
-
-  // Inicializar el carrusel de testimonios
-  updateTestimonialCarousel()
-})
+}
 
 // Hero Carousel Functions
 function initHeroCarousel() {
-  // Start automatic slideshow
   heroInterval = setInterval(nextSlide, 5000)
 
-  // Pause on hover
   const heroSection = document.querySelector(".hero-section")
   heroSection.addEventListener("mouseenter", () => {
     clearInterval(heroInterval)
@@ -63,15 +87,12 @@ function nextSlide() {
   const slides = document.querySelectorAll(".hero-slide")
   const indicators = document.querySelectorAll(".indicator")
 
-  // Remove active class from current slide and indicator
   slides[currentSlide].classList.remove("active")
   indicators[currentSlide].classList.remove("btn-warning")
   indicators[currentSlide].classList.add("btn-outline-warning")
 
-  // Move to next slide
   currentSlide = (currentSlide + 1) % slides.length
 
-  // Add active class to new slide and indicator
   slides[currentSlide].classList.add("active")
   indicators[currentSlide].classList.remove("btn-outline-warning")
   indicators[currentSlide].classList.add("btn-warning")
@@ -81,15 +102,12 @@ function previousSlide() {
   const slides = document.querySelectorAll(".hero-slide")
   const indicators = document.querySelectorAll(".indicator")
 
-  // Remove active class from current slide and indicator
   slides[currentSlide].classList.remove("active")
   indicators[currentSlide].classList.remove("btn-warning")
   indicators[currentSlide].classList.add("btn-outline-warning")
 
-  // Move to previous slide
   currentSlide = (currentSlide - 1 + slides.length) % slides.length
 
-  // Add active class to new slide and indicator
   slides[currentSlide].classList.add("active")
   indicators[currentSlide].classList.remove("btn-outline-warning")
   indicators[currentSlide].classList.add("btn-warning")
@@ -99,82 +117,118 @@ function goToSlide(slideIndex) {
   const slides = document.querySelectorAll(".hero-slide")
   const indicators = document.querySelectorAll(".indicator")
 
-  // Remove active class from current slide and indicator
   slides[currentSlide].classList.remove("active")
   indicators[currentSlide].classList.remove("btn-warning")
   indicators[currentSlide].classList.add("btn-outline-warning")
 
-  // Set new current slide
   currentSlide = slideIndex
 
-  // Add active class to new slide and indicator
   slides[currentSlide].classList.add("active")
   indicators[currentSlide].classList.remove("btn-outline-warning")
   indicators[currentSlide].classList.add("btn-warning")
 }
 
-// Testimonial Carousel Functions
-function updateTestimonialCarousel() {
+function initTestimonialCarousel() {
   const wrapper = document.querySelector(".testimonials-wrapper")
   const testimonials = document.querySelectorAll(".testimonial-grid-card")
+
   if (!wrapper || testimonials.length === 0) return
 
-  // Calculate how many testimonials fit in view based on current screen size
-  let testimonialsInView = 3; // Default for desktop
-  if (window.innerWidth <= 992 && window.innerWidth > 768) {
-    testimonialsInView = 2; // For tablets
-  } else if (window.innerWidth <= 768) {
-    testimonialsInView = 1; // For mobile
-  }
+  // Duplicar testimonios para loop infinito
+  testimonials.forEach((testimonial) => {
+    const clone = testimonial.cloneNode(true)
+    wrapper.appendChild(clone)
+  })
 
-  const testimonialWidth = testimonials[0].offsetWidth + parseFloat(getComputedStyle(wrapper).gap);
-  const maxIndex = testimonials.length - testimonialsInView;
+  // Agregar event listeners para pausar/reanudar animación
+  const allTestimonials = wrapper.querySelectorAll(".testimonial-grid-card")
 
-  // Ensure currentTestimonialIndex doesn't exceed maxIndex
-  if (currentTestimonialIndex > maxIndex) {
-    currentTestimonialIndex = maxIndex;
-  }
-  if (currentTestimonialIndex < 0) {
-    currentTestimonialIndex = 0;
-  }
+  allTestimonials.forEach((testimonial) => {
+    testimonial.addEventListener("mouseenter", () => {
+      wrapper.style.animationPlayState = "paused"
+    })
 
-  wrapper.style.transform = `translateX(-${currentTestimonialIndex * testimonialWidth}px)`;
+    testimonial.addEventListener("mouseleave", () => {
+      wrapper.style.animationPlayState = "running"
+    })
 
-  // Enable/disable buttons
-  document.querySelector('.testimonial-nav-btn.prev-btn').disabled = currentTestimonialIndex === 0;
-  document.querySelector('.testimonial-nav-btn.next-btn').disabled = currentTestimonialIndex >= maxIndex;
+    testimonial.addEventListener("click", () => {
+      if (wrapper.style.animationPlayState === "paused") {
+        wrapper.style.animationPlayState = "running"
+      } else {
+        wrapper.style.animationPlayState = "paused"
+      }
+    })
+  })
 }
 
+// Mantener funciones de navegación manual para compatibilidad
 function nextTestimonial() {
   const testimonials = document.querySelectorAll(".testimonial-grid-card")
   const wrapper = document.querySelector(".testimonials-wrapper")
-  if (!wrapper || testimonials.length === 0) return;
+  if (!wrapper || testimonials.length === 0) return
 
-  let testimonialsInView = 3;
+  let testimonialsInView = 3
   if (window.innerWidth <= 992 && window.innerWidth > 768) {
-    testimonialsInView = 2;
+    testimonialsInView = 2
   } else if (window.innerWidth <= 768) {
-    testimonialsInView = 1;
+    testimonialsInView = 1
   }
 
-  const maxIndex = testimonials.length - testimonialsInView;
+  const maxIndex = Math.floor(testimonials.length / 2) - testimonialsInView
 
   if (currentTestimonialIndex < maxIndex) {
-    currentTestimonialIndex++;
-    updateTestimonialCarousel();
+    currentTestimonialIndex++
+    updateTestimonialCarousel()
   }
 }
 
 function prevTestimonial() {
   if (currentTestimonialIndex > 0) {
-    currentTestimonialIndex--;
-    updateTestimonialCarousel();
+    currentTestimonialIndex--
+    updateTestimonialCarousel()
   }
 }
 
-// Recalcular el carrusel de testimonios al redimensionar la ventana
-window.addEventListener('resize', updateTestimonialCarousel);
+function updateTestimonialCarousel() {
+  const wrapper = document.querySelector(".testimonials-wrapper")
+  const testimonials = document.querySelectorAll(".testimonial-grid-card")
+  if (!wrapper || testimonials.length === 0) return
 
+  let testimonialsInView = 3
+  if (window.innerWidth <= 992 && window.innerWidth > 768) {
+    testimonialsInView = 2
+  } else if (window.innerWidth <= 768) {
+    testimonialsInView = 1
+  }
+
+  const testimonialWidth = testimonials[0].offsetWidth + Number.parseFloat(getComputedStyle(wrapper).gap)
+  const maxIndex = Math.floor(testimonials.length / 2) - testimonialsInView
+
+  if (currentTestimonialIndex > maxIndex) {
+    currentTestimonialIndex = maxIndex
+  }
+  if (currentTestimonialIndex < 0) {
+    currentTestimonialIndex = 0
+  }
+
+  // Pausar animación durante navegación manual
+  wrapper.style.animationPlayState = "paused"
+  wrapper.style.transform = `translateX(-${currentTestimonialIndex * testimonialWidth}px)`
+
+  // Reanudar animación después de 3 segundos
+  setTimeout(() => {
+    wrapper.style.animationPlayState = "running"
+  }, 3000)
+
+  const prevBtn = document.querySelector(".testimonial-nav-btn.prev-btn")
+  const nextBtn = document.querySelector(".testimonial-nav-btn.next-btn")
+
+  if (prevBtn) prevBtn.disabled = currentTestimonialIndex === 0
+  if (nextBtn) nextBtn.disabled = currentTestimonialIndex >= maxIndex
+}
+
+window.addEventListener("resize", updateTestimonialCarousel)
 
 // Contact Functions
 function openWhatsApp() {
@@ -203,7 +257,6 @@ function submitForm(event) {
   const form = event.target
   const formData = new FormData(form)
 
-  // Get form data
   const data = {
     name: formData.get("name"),
     email: formData.get("email"),
@@ -213,20 +266,17 @@ function submitForm(event) {
     acceptTerms: formData.get("acceptTerms"),
   }
 
-  // Validate form
   if (!data.acceptTerms) {
     alert("Debe aceptar los términos y condiciones")
     return
   }
 
-  // Simulate form submission
   const submitButton = form.querySelector('button[type="submit"]')
   const originalText = submitButton.innerHTML
 
   submitButton.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Enviando...'
   submitButton.disabled = true
 
-  // Simulate API call
   setTimeout(() => {
     alert("Cotización enviada correctamente. Nos pondremos en contacto contigo pronto.")
     form.reset()
@@ -234,7 +284,6 @@ function submitForm(event) {
     submitButton.disabled = false
   }, 2000)
 
-  // In a real implementation, you would send this data to your server
   console.log("Form data:", data)
 }
 
@@ -250,7 +299,7 @@ function initSmoothScrolling() {
       const targetElement = document.getElementById(targetId)
 
       if (targetElement) {
-        const offsetTop = targetElement.offsetTop - 80 // Account for fixed navbar
+        const offsetTop = targetElement.offsetTop - 80
 
         window.scrollTo({
           top: offsetTop,
@@ -308,7 +357,6 @@ function subscribeNewsletter() {
     return
   }
 
-  // Simulate subscription
   alert("¡Gracias por suscribirte a nuestro newsletter!")
   emailInput.value = ""
 }
