@@ -117,6 +117,13 @@ body {
   display: flex;
   gap: 2rem; /* Aumentar espacio entre botones */
   align-items: center;
+  justify-content: flex-start; /* Agregando justify-content para centrar los botones */
+  flex-wrap: wrap; /* Agregando flex-wrap para responsive */
+}
+
+.hero-buttons .btn {
+  min-width: 160px; /* Agregando estilos específicos para los botones del hero */
+  text-align: center;
 }
 
 .hero-nav-btn {
@@ -419,10 +426,13 @@ footer .navbar-brand span {
     flex-direction: column;
     gap: 1rem;
     width: 100%;
+    align-items: stretch; /* Mejorando la alineación en móvil - centrar los botones */
+    justify-content: center;
   }
 
   .hero-buttons .btn {
     width: 100%;
+    min-width: unset; /* Asegurando que los botones tengan el mismo ancho en móvil */
   }
 
   .service-card {
