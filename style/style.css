@@ -354,19 +354,25 @@ body {
   border-radius: 20px;
   background: rgba(255, 107, 53, 0.02);
   border: 1px solid rgba(255, 107, 53, 0.1);
-  touch-action: pan-y pinch-zoom;
+  touch-action: pan-y; /* Permite scroll vertical pero controla el horizontal */
   width: 100%;
   max-width: 100%;
+  cursor: grab;
+}
+
+.testimonials-carousel-container:active {
+  cursor: grabbing;
 }
 
 .testimonials-wrapper {
   display: flex;
   gap: 2rem;
   transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  animation: testimonialFlow 40s linear infinite;
+  animation: testimonialFlow 80s linear infinite; /* Cambiado de 40s a 80s para ser más lento */
   animation-play-state: running;
   width: max-content;
   max-width: none;
+  will-change: transform; /* Mejora el rendimiento */
 }
 
 @keyframes testimonialFlow {
@@ -374,11 +380,12 @@ body {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-50%); /* Mantiene el bucle infinito */
   }
 }
 
-.testimonials-wrapper:hover {
+.testimonials-wrapper:hover,
+.testimonials-wrapper.paused {
   animation-play-state: paused;
 }
 
@@ -390,33 +397,33 @@ body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   background: linear-gradient(135deg, var(--sfe-orange), #e55a2b);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   opacity: 0;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   pointer-events: none;
   z-index: 15;
-  box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+  box-shadow: 0 15px 40px rgba(255, 107, 53, 0.5);
 }
 
 .swipe-indicator.swipe-next {
-  right: 20px;
+  right: 30px;
 }
 
 .swipe-indicator.swipe-prev {
-  left: 20px;
+  left: 30px;
 }
 
 .swipe-indicator.show {
-  opacity: 0.9;
-  transform: translateY(-50%) scale(1.1);
+  opacity: 0.95;
+  transform: translateY(-50%) scale(1.15);
 }
 
 /* Tarjetas de testimonios modernas */
@@ -432,6 +439,8 @@ body {
   cursor: pointer;
   min-height: 280px;
   touch-action: manipulation;
+  user-select: none; /* Previene selección de texto durante swipe */
+  -webkit-user-select: none;
 }
 
 .testimonial-card::before {
@@ -744,7 +753,7 @@ body {
   height: 100%;
   background: linear-gradient(90deg, var(--sfe-orange), #e55a2b);
   border-radius: 2px;
-  animation: progressFlow 40s linear infinite;
+  animation: progressFlow 80s linear infinite; /* Cambiado de 40s a 80s */
 }
 
 @keyframes progressFlow {
