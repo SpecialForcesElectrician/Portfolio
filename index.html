@@ -52,7 +52,6 @@
         </div>
     </nav>
 
-
     <section id="home" class="hero-section position-relative overflow-hidden" style="margin-top: 76px; min-height: 100vh;">
         <div class="hero-slide active position-absolute w-100 h-100 d-flex align-items-center" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('img/hero_slide1.jpg');">
             <div class="container">
@@ -152,7 +151,7 @@
                             </div>
                             <div class="hero-buttons">
                                 <a href="servicios.html" class="btn btn-warning btn-lg me-4">
-                                    <i class="fas eye me-2"></i>Ver Más
+                                    <i class="fas fa-eye me-2"></i>Ver Más
                                 </a>
                                 <button class="btn btn-outline-warning btn-lg" onclick="openWhatsApp()"><i class="fas fa-calculator me-2"></i>Cotizar</button>
                             </div>
@@ -245,7 +244,6 @@
             </div>
 
             <div class="row g-4">
-
                 <div class="col-lg-4 col-md-6">
                     <div class="card h-100 shadow-sm border-0 service-card bg-gray">
                         <div class="card-body p-4">
@@ -277,7 +275,6 @@
                     </div>
                 </div>
 
-
                 <div class="col-lg-4 col-md-6">
                     <div class="card h-100 shadow-sm border-0 service-card bg-gray">
                         <div class="card-body p-4">
@@ -308,7 +305,6 @@
                     </div>
                 </div>
 
-
                 <div class="col-lg-4 col-md-6">
                     <div class="card h-100 shadow-sm border-0 service-card bg-gray">
                         <div class="card-body p-4">
@@ -337,7 +333,6 @@
                         </div>
                     </div>
                 </div>
-
 
                 <div class="col-lg-4 col-md-6">
                     <div class="card h-100 shadow-sm border-0 service-card bg-gray">
@@ -368,7 +363,6 @@
                         </div>
                     </div>
                 </div>
-
 
                 <div class="col-lg-4 col-md-6">
                     <div class="card h-100 shadow-sm border-0 service-card bg-gray">
@@ -432,7 +426,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN DE TESTIMONIOS INNOVADORA -->
+    <!-- SECCIÓN DE TESTIMONIOS CON SWIPE -->
     <section class="py-5 bg-dark text-white testimonials-section">
         <div class="container">
             <!-- Header con efectos -->
@@ -478,7 +472,7 @@
                 </div>
             </div>
 
-            <!-- Carrusel de testimonios mejorado -->
+            <!-- Carrusel de testimonios con swipe -->
             <div class="position-relative testimonials-container">
                 <div class="testimonials-carousel-container">
                     <div class="testimonials-wrapper" id="testimonialsWrapper">
@@ -686,7 +680,7 @@
                             </div>
                         </div>
 
-                        <!-- Más testimonios... -->
+                        <!-- Testimonio 7 -->
                         <div class="testimonial-card modern-card">
                             <div class="card-glow"></div>
                             <div class="testimonial-header">
@@ -703,7 +697,7 @@
                             </div>
                             <div class="testimonial-content">
                                 <p class="testimonial-text">
-                                    "Buen compromiso y calidad en todas las labores realizadas.."
+                                    "Buen compromiso y calidad en todas las labores realizadas."
                                 </p>
                             </div>
                             <div class="testimonial-footer">
@@ -720,6 +714,7 @@
                             </div>
                         </div>
 
+                        <!-- Testimonio 8 -->
                         <div class="testimonial-card modern-card">
                             <div class="card-glow"></div>
                             <div class="testimonial-header">
@@ -753,6 +748,7 @@
                             </div>
                         </div>
 
+                        <!-- Testimonio 9 -->
                         <div class="testimonial-card modern-card">
                             <div class="card-glow"></div>
                             <div class="testimonial-header">
@@ -1036,29 +1032,48 @@
         </div>
     </section>
 
-
     <footer class="bg-black text-white py-5">
-        <div class="container">
-            <div class="row g-4"> 
-                <div class="col-lg-3 col-md-6">
-                    <div class="footer-brand mb-4">
-                        <img src="img/Logo special.png" alt="Special Forces Electrician" height="50" class="mb-3">
-                        <h5 class="text-warning fw-bold">Special Forces Electrician</h5>
-                    </div>
-
-                    <div class="social-links">
-                        <h6 class="text-warning mb-3">Síguenos</h6>
-                        <div class="d-flex gap-3">
-                            <a href="https://api.whatsapp.com/send/?phone=%2B573173945568&text=Hola%2C+me+interesa+obtener+una+cotización+para+un+proyecto+eléctrico.&type=phone_number&app_absent=0" class="text-light"><i class="fab fa-whatsapp fa-lg"></i></a>
-                            <a href="https://www.facebook.com/profile.php?id=100066506946924&rdid=HYPcBbHBQOdn7R8m&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1Bx8L4WTej%2F" class="text-light"><i class="fab fa-facebook fa-lg"></i></a>
-                            <a href="https://www.instagram.com/specialforceselectrician?igsh=MXBxc3U0a3BsZGwxaA==" class="text-light"><i class="fab fa-instagram fa-lg"></i></a>
-                            <a href="https://www.linkedin.com/company/special-forces-electrician-sas/" class="text-light"><i class="fab fa-linkedin fa-lg"></i></a>
-                            <a href="https://www.tiktok.com/@electricistaspecialescol?_t=ZS-8yWThzShAWa&_r=1" class="text-light"><i class="fab fa-tiktok fa-lg"></i></a>
-                        </div>
+    <div class="container">
+        <div class="row g-4"> 
+            <!-- MÓVIL: Logo y redes centrados -->
+            <div class="col-12 d-md-none text-center footer-mobile-header">
+                <div class="footer-brand mb-3">
+                    <img src="img/Logo special.png" alt="Special Forces Electrician" height="50" class="mb-3">
+                    <h5 class="text-warning fw-bold mb-3">Special Forces Electrician</h5>
+                </div>
+                <div class="social-section mb-4">
+                    <h6 class="text-warning mb-3">Síguenos</h6>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="https://api.whatsapp.com/send/?phone=%2B573173945568&text=Hola%2C+me+interesa+obtener+una+cotización+para+un+proyecto+eléctrico.&type=phone_number&app_absent=0" class="text-light"><i class="fab fa-whatsapp fa-lg"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=100066506946924&rdid=HYPcBbHBQOdn7R8m&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1Bx8L4WTej%2F" class="text-light"><i class="fab fa-facebook fa-lg"></i></a>
+                        <a href="https://www.instagram.com/specialforceselectrician?igsh=MXBxc3U0a3BsZGwxaA==" class="text-light"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="https://www.linkedin.com/company/special-forces-electrician-sas/" class="text-light"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="https://www.tiktok.com/@electricistaspecialescol?_t=ZS-8yWThzShAWa&_r=1" class="text-light"><i class="fab fa-tiktok fa-lg"></i></a>
                     </div>
                 </div>
+            </div>
 
-                <div class="col-lg-2 col-md-6">
+            <!-- DESKTOP/TABLET: Logo y redes en columna izquierda -->
+            <div class="col-lg-3 col-md-3 d-none d-md-block footer-desktop-brand">
+                <div class="footer-brand mb-4">
+                    <img src="img/Logo special.png" alt="Special Forces Electrician" height="50" class="mb-3">
+                    <h5 class="text-warning fw-bold mb-3">Special Forces Electrician</h5>
+                </div>
+                <div class="social-section">
+                    <h6 class="text-warning mb-3">Síguenos</h6>
+                    <div class="d-flex gap-3">
+                        <a href="https://api.whatsapp.com/send/?phone=%2B573173945568&text=Hola%2C+me+interesa+obtener+una+cotización+para+un+proyecto+eléctrico.&type=phone_number&app_absent=0" class="text-light"><i class="fab fa-whatsapp fa-lg"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=100066506946924&rdid=HYPcBbHBQOdn7R8m&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1Bx8L4WTej%2F" class="text-light"><i class="fab fa-facebook fa-lg"></i></a>
+                        <a href="https://www.instagram.com/specialforceselectrician?igsh=MXBxc3U0a3BsZGwxaA==" class="text-light"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="https://www.linkedin.com/company/special-forces-electrician-sas/" class="text-light"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="https://www.tiktok.com/@electricistaspecialescol?_t=ZS-8yWThzShAWa&_r=1" class="text-light"><i class="fab fa-tiktok fa-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MÓVIL: Enlaces y Legal (columna izquierda) -->
+            <div class="col-6 d-md-none footer-mobile-left">
+                <div class="mb-4">
                     <h6 class="text-warning mb-3">Enlaces</h6>
                     <ul class="list-unstyled">
                         <li class="mb-2"><a href="#home" class="text-light text-decoration-none small">Inicio</a></li>
@@ -1066,8 +1081,19 @@
                         <li class="mb-2"><a href="#contacto" class="text-light text-decoration-none small">Contacto</a></li>
                     </ul>
                 </div>
+                <div>
+                    <h6 class="text-warning mb-3">Legal</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="Politicaprivacidad.html" class="text-light text-decoration-none small">Política de Privacidad</a></li>
+                        <li class="mb-2"><a href="terminosservicio.html" class="text-light text-decoration-none small">Términos de Servicio</a></li>
+                        <li class="mb-2"><a href="accesibilidad.html" class="text-light text-decoration-none small">Accesibilidad</a></li>
+                    </ul>
+                </div>
+            </div>
 
-                <div class="col-lg-2 col-md-6">
+            <!-- MÓVIL: Servicios y Más (columna derecha) -->
+            <div class="col-6 d-md-none footer-mobile-right">
+                <div class="mb-4">
                     <h6 class="text-warning mb-3">Servicios</h6>
                     <ul class="list-unstyled">
                         <li class="mb-2"><a href="servicios.html" class="text-light text-decoration-none small">Instalaciones Eléctricas</a></li>
@@ -1077,36 +1103,66 @@
                         <li class="mb-2"><a href="servicios.html" class="text-light text-decoration-none small">Mantenimiento</a></li>
                     </ul>
                 </div>
-
-    
-                <div class="col-lg-2 col-md-6">
-                    <h6 class="text-warning mb-3">Legal</h6>
+                <div>
+                    <h6 class="text-warning mb-3">Más</h6>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="Politicaprivacidad.html" class="text-light text-decoration-none small">Política de Privacidad</a></li>
-                        <li class="mb-2"><a href="terminosservicio.html" class="text-light text-decoration-none small">Términos de Servicio</a></li>
-                        <li class="mb-2"><a href="accesibilidad.html" class="text-light text-decoration-none small">Accesibilidad</a></li>
                         <li class="mb-2"><a href="avisolegal.html" class="text-light text-decoration-none small">Aviso Legal</a></li>
                         <li class="mb-2"><a href="certificaciones.html" class="text-light text-decoration-none small">Certificaciones</a></li>
                     </ul>
                 </div>
             </div>
 
-            <hr class="my-4 border-secondary">
+            <!-- DESKTOP/TABLET: Enlaces -->
+            <div class="col-lg-2 col-md-2 d-none d-md-block">
+                <h6 class="text-warning mb-3">Enlaces</h6>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="#home" class="text-light text-decoration-none small">Inicio</a></li>
+                    <li class="mb-2"><a href="#servicios" class="text-light text-decoration-none small">Servicios</a></li>
+                    <li class="mb-2"><a href="#contacto" class="text-light text-decoration-none small">Contacto</a></li>
+                </ul>
+            </div>
 
-            <div class="row">
-                <div class="col-md-6">
-                    <p class="small text-muted mb-0">© 2025 Special Forces Electrician. Todos los derechos reservados.</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <div class="d-flex justify-content-md-end gap-3">
-                        <a href="Politicaprivacidad.html" class="text-muted text-decoration-none small">Política de Privacidad</a>
-                        <a href="terminosservicio.html" class="text-muted text-decoration-none small">Términos de Servicio</a>
-                        <a href="accesibilidad.html" class="text-muted text-decoration-none small">Accesibilidad</a>
-                    </div>
+            <!-- DESKTOP/TABLET: Servicios -->
+            <div class="col-lg-4 col-md-4 d-none d-md-block">
+                <h6 class="text-warning mb-3">Servicios</h6>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="servicios.html" class="text-light text-decoration-none small">Instalaciones Eléctricas</a></li>
+                    <li class="mb-2"><a href="servicios.html" class="text-light text-decoration-none small">Redes de Datos</a></li>
+                    <li class="mb-2"><a href="servicios.html" class="text-light text-decoration-none small">Seguridad Electrónica</a></li>
+                    <li class="mb-2"><a href="servicios.html" class="text-light text-decoration-none small">Energía Renovable</a></li>
+                    <li class="mb-2"><a href="servicios.html" class="text-light text-decoration-none small">Mantenimiento</a></li>
+                </ul>
+            </div>
+
+            <!-- DESKTOP/TABLET: Legal -->
+            <div class="col-lg-3 col-md-3 d-none d-md-block">
+                <h6 class="text-warning mb-3">Legal</h6>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="Politicaprivacidad.html" class="text-light text-decoration-none small">Política de Privacidad</a></li>
+                    <li class="mb-2"><a href="terminosservicio.html" class="text-light text-decoration-none small">Términos de Servicio</a></li>
+                    <li class="mb-2"><a href="accesibilidad.html" class="text-light text-decoration-none small">Accesibilidad</a></li>
+                    <li class="mb-2"><a href="avisolegal.html" class="text-light text-decoration-none small">Aviso Legal</a></li>
+                    <li class="mb-2"><a href="certificaciones.html" class="text-light text-decoration-none small">Certificaciones</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <hr class="my-4 border-secondary">
+
+        <div class="row">
+            <div class="col-md-6">
+                <p class="small text-muted mb-0">© 2025 Special Forces Electrician. Todos los derechos reservados.</p>
+            </div>
+            <div class="col-md-6 text-md-end">
+                <div class="d-flex justify-content-md-end gap-3 flex-wrap">
+                    <a href="Politicaprivacidad.html" class="text-muted text-decoration-none small">Política de Privacidad</a>
+                    <a href="terminosservicio.html" class="text-muted text-decoration-none small">Términos de Servicio</a>
+                    <a href="accesibilidad.html" class="text-muted text-decoration-none small">Accesibilidad</a>
                 </div>
             </div>
         </div>
-    </footer>
+    </div>
+</footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script/script.js"></script>
 </body>

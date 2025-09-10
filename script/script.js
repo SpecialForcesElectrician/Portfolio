@@ -5,6 +5,13 @@ const bootstrap = window.bootstrap
 let currentTestimonialIndex = 0
 const testimonialAnimationPaused = false
 
+// Variables para swipe
+let touchStartX = 0
+let touchEndX = 0
+let touchStartY = 0
+let touchEndY = 0
+let isScrolling = false
+
 // DOM Content Loaded
 document.addEventListener("DOMContentLoaded", () => {
   initHeroCarousel()
@@ -13,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initMobileNavbar()
   initTestimonialCarousel()
   initTestimonialStats()
+  initTestimonialSwipe()
 
   const newsletterButton = document.querySelector(".newsletter .btn-warning")
   if (newsletterButton) {
@@ -125,6 +133,245 @@ function goToSlide(slideIndex) {
   slides[currentSlide].classList.add("active")
   indicators[currentSlide].classList.remove("btn-outline-warning")
   indicators[currentSlide].classList.add("btn-warning")
+}
+
+// ===================================
+// FUNCIONES DE SWIPE PARA TESTIMONIOS
+// ===================================
+
+function initTestimonialSwipe() {
+  const testimonialsContainer = document.querySelector(".testimonials-carousel-container")
+
+  if (!testimonialsContainer) return
+
+  // Event listeners para touch
+  testimonialsContainer.addEventListener("touchstart", handleTouchStart, { passive: false })
+  testimonialsContainer.addEventListener("touchmove", handleTouchMove, { passive: false })
+  testimonialsContainer.addEventListener("touchend", handleTouchEnd, { passive: false })
+
+  // Event listeners para mouse (para testing en desktop)
+  testimonialsContainer.addEventListener("mousedown", handleMouseStart)
+  testimonialsContainer.addEventListener("mousemove", handleMouseMove)
+  testimonialsContainer.addEventListener("mouseup", handleMouseEnd)
+  testimonialsContainer.addEventListener("mouseleave", handleMouseEnd)
+
+  // Prevenir selección de texto durante swipe
+  testimonialsContainer.style.userSelect = "none"
+  testimonialsContainer.style.webkitUserSelect = "none"
+}
+
+function handleTouchStart(e) {
+  touchStartX = e.touches[0].clientX
+  touchStartY = e.touches[0].clientY
+  isScrolling = false
+
+  // Pausar animación automática
+  const wrapper = document.querySelector(".testimonials-wrapper")
+  if (wrapper) {
+    wrapper.style.animationPlayState = "paused"
+  }
+}
+
+function handleTouchMove(e) {
+  if (!touchStartX || !touchStartY) return
+
+  const touchCurrentX = e.touches[0].clientX
+  const touchCurrentY = e.touches[0].clientY
+
+  const diffX = Math.abs(touchCurrentX - touchStartX)
+  const diffY = Math.abs(touchCurrentY - touchStartY)
+
+  // Determinar si es scroll vertical u horizontal
+  if (!isScrolling) {
+    isScrolling = diffY > diffX
+  }
+
+  // Si es swipe horizontal, prevenir scroll vertical
+  if (!isScrolling && diffX > 10) {
+    e.preventDefault()
+  }
+}
+
+function handleTouchEnd(e) {
+  if (!touchStartX || isScrolling) {
+    resetTouchVariables()
+    return
+  }
+
+  touchEndX = e.changedTouches[0].clientX
+  touchEndY = e.changedTouches[0].clientY
+
+  handleSwipe()
+  resetTouchVariables()
+}
+
+// Funciones para mouse (desktop testing)
+function handleMouseStart(e) {
+  touchStartX = e.clientX
+  touchStartY = e.clientY
+  isScrolling = false
+
+  const wrapper = document.querySelector(".testimonials-wrapper")
+  if (wrapper) {
+    wrapper.style.animationPlayState = "paused"
+  }
+}
+
+function handleMouseMove(e) {
+  if (!touchStartX) return
+
+  const diffX = Math.abs(e.clientX - touchStartX)
+  const diffY = Math.abs(e.clientY - touchStartY)
+
+  if (!isScrolling) {
+    isScrolling = diffY > diffX
+  }
+}
+
+function handleMouseEnd(e) {
+  if (!touchStartX || isScrolling) {
+    resetTouchVariables()
+    return
+  }
+
+  touchEndX = e.clientX
+  touchEndY = e.clientY
+
+  handleSwipe()
+  resetTouchVariables()
+}
+
+function handleSwipe() {
+  const swipeThreshold = 50 // Mínima distancia para considerar swipe
+  const swipeDistance = touchEndX - touchStartX
+
+  if (Math.abs(swipeDistance) < swipeThreshold) {
+    // Reanudar animación si no hay swipe válido
+    setTimeout(() => {
+      const wrapper = document.querySelector(".testimonials-wrapper")
+      if (wrapper) {
+        wrapper.style.animationPlayState = "running"
+      }
+    }, 1000)
+    return
+  }
+
+  if (swipeDistance > 0) {
+    // Swipe hacia la derecha - ir al testimonio anterior
+    swipeToPrevTestimonial()
+  } else {
+    // Swipe hacia la izquierda - ir al siguiente testimonio
+    swipeToNextTestimonial()
+  }
+}
+
+function swipeToNextTestimonial() {
+  const testimonials = document.querySelectorAll(".testimonial-card")
+  const wrapper = document.querySelector(".testimonials-wrapper")
+
+  if (!wrapper || testimonials.length === 0) return
+
+  const testimonialsInView = getTestimonialsInView()
+  const totalTestimonials = Math.floor(testimonials.length / 2) // Dividir por 2 porque están duplicados
+  const maxIndex = Math.max(0, totalTestimonials - testimonialsInView)
+
+  if (currentTestimonialIndex < maxIndex) {
+    currentTestimonialIndex++
+    updateTestimonialCarouselWithSwipe()
+    showSwipeIndicator("next")
+  } else {
+    // Si está en el último, volver al primero
+    currentTestimonialIndex = 0
+    updateTestimonialCarouselWithSwipe()
+    showSwipeIndicator("next")
+  }
+}
+
+function swipeToPrevTestimonial() {
+  const testimonials = document.querySelectorAll(".testimonial-card")
+  const wrapper = document.querySelector(".testimonials-wrapper")
+
+  if (!wrapper || testimonials.length === 0) return
+
+  const testimonialsInView = getTestimonialsInView()
+  const totalTestimonials = Math.floor(testimonials.length / 2)
+  const maxIndex = Math.max(0, totalTestimonials - testimonialsInView)
+
+  if (currentTestimonialIndex > 0) {
+    currentTestimonialIndex--
+    updateTestimonialCarouselWithSwipe()
+    showSwipeIndicator("prev")
+  } else {
+    // Si está en el primero, ir al último
+    currentTestimonialIndex = maxIndex
+    updateTestimonialCarouselWithSwipe()
+    showSwipeIndicator("prev")
+  }
+}
+
+function getTestimonialsInView() {
+  if (window.innerWidth <= 576) {
+    return 1
+  } else if (window.innerWidth <= 768) {
+    return 1
+  } else if (window.innerWidth <= 992) {
+    return 2
+  } else {
+    return 3
+  }
+}
+
+function updateTestimonialCarouselWithSwipe() {
+  const wrapper = document.querySelector(".testimonials-wrapper")
+  const testimonials = document.querySelectorAll(".testimonial-card")
+
+  if (!wrapper || testimonials.length === 0) return
+
+  const testimonialWidth = testimonials[0].offsetWidth + Number.parseFloat(getComputedStyle(wrapper).gap)
+
+  // Aplicar transformación suave
+  wrapper.style.transition = "transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)"
+  wrapper.style.transform = `translateX(-${currentTestimonialIndex * testimonialWidth}px)`
+  wrapper.style.animationPlayState = "paused"
+
+  // Reanudar animación después de 3 segundos
+  setTimeout(() => {
+    wrapper.style.transition = ""
+    wrapper.style.animationPlayState = "running"
+  }, 3000)
+}
+
+function showSwipeIndicator(direction) {
+  // Crear indicador visual temporal
+  const indicator = document.createElement("div")
+  indicator.className = `swipe-indicator swipe-${direction}`
+  indicator.innerHTML =
+    direction === "next" ? '<i class="fas fa-chevron-left"></i>' : '<i class="fas fa-chevron-right"></i>'
+
+  const container = document.querySelector(".testimonials-carousel-container")
+  container.appendChild(indicator)
+
+  // Animar y remover
+  setTimeout(() => {
+    indicator.classList.add("show")
+  }, 10)
+
+  setTimeout(() => {
+    indicator.classList.remove("show")
+    setTimeout(() => {
+      if (indicator.parentNode) {
+        indicator.parentNode.removeChild(indicator)
+      }
+    }, 300)
+  }, 800)
+}
+
+function resetTouchVariables() {
+  touchStartX = 0
+  touchEndX = 0
+  touchStartY = 0
+  touchEndY = 0
+  isScrolling = false
 }
 
 // Testimonial Functions - Mejoradas

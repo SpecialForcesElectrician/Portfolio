@@ -70,8 +70,8 @@ body {
 .hero-section {
   position: relative;
   overflow: hidden;
-  margin-top: 15px !important; /* CORREGIDO: Cambiado de 76px a 15px */
-  min-height: 40vh; /* CORREGIDO: Cambiado de 60vh a 40vh */
+  margin-top: 76px !important;
+  min-height: 100vh;
   background-size: cover;
   background-position: center;
 }
@@ -115,14 +115,14 @@ body {
 
 .hero-buttons {
   display: flex;
-  gap: 2rem; /* Aumentar espacio entre botones */
+  gap: 2rem;
   align-items: center;
-  justify-content: flex-start; /* Agregando justify-content para centrar los botones */
-  flex-wrap: wrap; /* Agregando flex-wrap para responsive */
+  justify-content: flex-start;
+  flex-wrap: wrap;
 }
 
 .hero-buttons .btn {
-  min-width: 160px; /* Agregando estilos específicos para los botones del hero */
+  min-width: 160px;
   text-align: center;
 }
 
@@ -182,7 +182,7 @@ body {
 }
 
 /* ===================================
-SECCIÓN DE TESTIMONIOS INNOVADORA
+SECCIÓN DE TESTIMONIOS CON SWIPE
 =================================== */
 
 .testimonials-section {
@@ -348,6 +348,7 @@ SECCIÓN DE TESTIMONIOS INNOVADORA
   border-radius: 20px;
   background: rgba(255, 107, 53, 0.02);
   border: 1px solid rgba(255, 107, 53, 0.1);
+  touch-action: pan-y; /* Permitir scroll vertical pero controlar horizontal */
 }
 
 .testimonials-wrapper {
@@ -371,6 +372,43 @@ SECCIÓN DE TESTIMONIOS INNOVADORA
   animation-play-state: paused;
 }
 
+/* ===================================
+INDICADORES DE SWIPE
+=================================== */
+
+.swipe-indicator {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--sfe-orange), #e55a2b);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  opacity: 0;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  z-index: 15;
+  box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+}
+
+.swipe-indicator.swipe-next {
+  right: 20px;
+}
+
+.swipe-indicator.swipe-prev {
+  left: 20px;
+}
+
+.swipe-indicator.show {
+  opacity: 0.9;
+  transform: translateY(-50%) scale(1.1);
+}
+
 /* Tarjetas de testimonios modernas */
 .testimonial-card {
   flex: 0 0 350px;
@@ -383,6 +421,7 @@ SECCIÓN DE TESTIMONIOS INNOVADORA
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   cursor: pointer;
   min-height: 280px;
+  touch-action: manipulation; /* Optimizar para touch */
 }
 
 .testimonial-card::before {
@@ -769,6 +808,12 @@ SECCIÓN DE TESTIMONIOS INNOVADORA
   .stat-item {
     margin: 0.25rem;
   }
+
+  .swipe-indicator {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -807,6 +852,20 @@ SECCIÓN DE TESTIMONIOS INNOVADORA
   .stat-number {
     font-size: 1.5rem;
   }
+
+  .swipe-indicator {
+    width: 45px;
+    height: 45px;
+    font-size: 1rem;
+  }
+
+  .swipe-indicator.swipe-next {
+    right: 15px;
+  }
+
+  .swipe-indicator.swipe-prev {
+    left: 15px;
+  }
 }
 
 @media (max-width: 576px) {
@@ -832,6 +891,20 @@ SECCIÓN DE TESTIMONIOS INNOVADORA
   .modern-nav-btn {
     width: 40px;
     height: 40px;
+  }
+
+  .swipe-indicator {
+    width: 40px;
+    height: 40px;
+    font-size: 0.9rem;
+  }
+
+  .swipe-indicator.swipe-next {
+    right: 10px;
+  }
+
+  .swipe-indicator.swipe-prev {
+    left: 10px;
   }
 }
 
@@ -916,6 +989,10 @@ SECCIÓN DE TESTIMONIOS INNOVADORA
 }
 
 /* Footer */
+footer {
+  background-color: #000000 !important;
+}
+
 footer a:hover {
   color: var(--sfe-orange) !important;
   transition: color 0.3s ease;
@@ -929,133 +1006,168 @@ footer .navbar-brand span {
   color: var(--sfe-orange);
 }
 
-/* Responsive Design */
+/* MÓVIL - Diseño vertical centrado (≤768px) */
 @media (max-width: 768px) {
-  .hero-content h1 {
-    font-size: 2.5rem;
-  }
-
-  .hero-buttons {
-    flex-direction: column;
-    gap: 1rem;
-    width: 100%;
-    align-items: stretch; /* Mejorando la alineación en móvil - centrar los botones */
-    justify-content: center;
-  }
-
-  .hero-buttons .btn {
-    width: 100%;
-    min-width: unset; /* Asegurando que los botones tengan el mismo ancho en móvil */
-  }
-
-  .service-card {
+  /* Header móvil - Logo y redes centrados */
+  .footer-mobile-header {
+    order: 1;
     margin-bottom: 2rem;
   }
 
-  .hero-nav-btn {
-    width: 40px;
-    height: 40px;
-  }
-}
-
-@media (max-width: 576px) {
-  .hero-content h1 {
-    font-size: 2rem;
+  .footer-mobile-header .footer-brand {
+    text-align: center;
   }
 
-  .display-5 {
-    font-size: 2rem;
+  .footer-mobile-header .social-section {
+    text-align: center;
   }
 
-  .navbar-brand span {
+  /* Columnas móvil - 2 columnas balanceadas */
+  .footer-mobile-left {
+    order: 2;
+    padding-right: 1rem;
+  }
+
+  .footer-mobile-right {
+    order: 3;
+    padding-left: 1rem;
+  }
+
+  /* Ajustes de espaciado móvil */
+  .footer-mobile-left h6,
+  .footer-mobile-right h6 {
     font-size: 1rem;
+    margin-bottom: 1rem;
   }
 
-  .hero-nav-btn {
-    width: 35px;
-    height: 35px;
+  .footer-mobile-left ul,
+  .footer-mobile-right ul {
+    margin-bottom: 1.5rem;
+  }
+
+  .footer-mobile-left li,
+  .footer-mobile-right li {
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-mobile-left .small,
+  .footer-mobile-right .small {
+    font-size: 0.85rem;
+  }
+
+  /* Copyright en móvil */
+  footer .row:last-child .d-flex {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  footer .row:last-child .col-md-6:last-child {
+    text-align: center !important;
   }
 }
 
-/* Animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
+/* DESKTOP/TABLET - Diseño horizontal 4 columnas (>768px) */
+@media (min-width: 769px) {
+  /* Estructura de 4 columnas */
+  .footer-desktop-brand {
+    flex: 0 0 25%;
+    max-width: 25%;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  /* Alineación izquierda para desktop */
+  .footer-desktop-brand .footer-brand {
+    text-align: left;
+  }
+
+  .footer-desktop-brand .social-section {
+    text-align: left;
+  }
+
+  /* Espaciado uniforme entre columnas */
+  footer .row.g-4 > div {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  /* Ajustes de títulos */
+  footer h6 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Espaciado de listas */
+  footer ul {
+    margin-bottom: 0;
+  }
+
+  footer li {
+    margin-bottom: 0.75rem;
+  }
+
+  footer .small {
+    font-size: 0.9rem;
   }
 }
 
-.fade-in-up {
-  animation: fadeInUp 0.6s ease-out;
+/* Ajustes específicos para tablet */
+@media (min-width: 769px) and (max-width: 992px) {
+  /* Ajustar columnas para tablet */
+  .footer-desktop-brand {
+    flex: 0 0 30%;
+    max-width: 30%;
+  }
+
+  footer .col-lg-2 {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+
+  footer .col-lg-4 {
+    flex: 0 0 30%;
+    max-width: 30%;
+  }
+
+  footer .col-lg-3 {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
 }
 
-/* Smooth Scrolling */
-html {
-  scroll-behavior: smooth;
-  scrollbar-width: none; /* Oculta la barra de scroll en Firefox */
+/* Estilos comunes para ambos diseños */
+.social-section a {
+  transition: color 0.3s ease;
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 0px; /* Oculta completamente la barra de scroll */
-  background: transparent; /* Hace el fondo transparente */
+.social-section a:hover {
+  color: var(--sfe-orange) !important;
 }
 
-::-webkit-scrollbar-thumb {
-  background: var(--sfe-orange);
-  border-radius: 4px;
+footer h6.text-warning {
+  color: var(--sfe-orange) !important;
+  font-weight: 600;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #e55a2b;
+footer .text-light {
+  color: #ffffff !important;
 }
 
-/* Contact Items */
-.contact-item {
-  transition: transform 0.3s ease;
+footer .text-muted {
+  color: #6c757d !important;
 }
 
-.contact-item:hover {
-  transform: translateX(5px);
+/* Separador */
+footer hr {
+  border-color: #404040 !important;
+  margin: 2rem 0;
 }
 
-.contact-icon {
-  min-width: 60px;
+/* Copyright section */
+footer .row:last-child {
+  margin-top: 1rem;
 }
 
-/* Form Validation */
-.was-validated .form-control:valid {
-  border-color: var(--sfe-orange);
-}
-
-.was-validated .form-control:invalid {
-  border-color: #dc3545;
-}
-
-/* Newsletter */
-.newsletter .input-group .form-control:focus {
-  border-color: var(--sfe-orange);
-  box-shadow: none;
-}
-
-.newsletter .btn-warning:hover {
-  transform: none;
-}
-
-/* Badge Overrides */
-.badge.bg-secondary {
-  background-color: var(--sfe-light-gray) !important;
-}
-
-/* Text Color Overrides */
-.text-muted {
-  color: #adb5bd !important;
-}
-
-.bg-warning {
-  background-color: var(--sfe-orange) !important;
+footer .row:last-child p,
+footer .row:last-child a {
+  font-size: 0.85rem;
 }
