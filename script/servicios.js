@@ -403,12 +403,8 @@ function initMobileMenuClose() {
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             if (navbarCollapse && navbarCollapse.classList.contains('show')) {
-                try {
-                    const bsCollapse = bootstrap.Collapse.getOrCreateInstance(navbarCollapse);
-                    bsCollapse.hide();
-                } catch (error) {
-                    navbarCollapse.classList.remove('show');
-                }
+                const bsCollapse = window.bootstrap.Collapse.getOrCreateInstance(navbarCollapse);
+                bsCollapse.hide();
             }
         });
     });
@@ -461,6 +457,15 @@ function initHoverAnimations() {
 // ===== FUNCIONES DE UTILIDAD =====
 
 /**
+ * Detecta si el dispositivo es móvil
+ * @returns {boolean} - True si es móvil
+ */
+function isMobileDevice() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+           window.innerWidth <= 768;
+}
+
+/**
  * Valida si un email es válido
  * @param {string} email - Email a validar
  * @returns {boolean} - True si es válido
@@ -485,18 +490,24 @@ function formatPhoneNumber(phone) {
 }
 
 /**
- * Muestra una notificación toast
+ * Muestra una notificación toast - SOLO EN DESKTOP
  * @param {string} message - Mensaje a mostrar
  * @param {string} type - Tipo de notificación (success, error, info)
  */
 function showToast(message, type = 'info') {
+    // CORREGIDO: No mostrar toast en dispositivos móviles
+    if (isMobileDevice()) {
+        console.log('Toast bloqueado en móvil:', message);
+        return;
+    }
+
     const toast = document.createElement('div');
     toast.className = `toast-notification toast-${type}`;
     toast.style.cssText = `
         position: fixed;
         top: 100px;
         right: 20px;
-        background: ${type === 'success' ? 'var(--sfe-orange)' : type === 'error' ? '#dc3545' : 'var(--sfe-gray)'};
+        background: ${type === 'success' ? 'var(--sfe-primary)' : type === 'error' ? '#dc3545' : 'var(--sfe-gray)'};
         color: white;
         padding: 1rem 1.5rem;
         border-radius: 8px;
@@ -504,6 +515,7 @@ function showToast(message, type = 'info') {
         z-index: 10000;
         animation: slideInRight 0.3s ease-out;
         max-width: 300px;
+        border: 2px solid var(--sfe-primary);
     `;
     
     toast.innerHTML = `
@@ -572,9 +584,11 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     document.head.appendChild(additionalStyles);
     
-    // Mostrar mensaje de bienvenida
+    // CORREGIDO: Mostrar mensaje de bienvenida SOLO en desktop/tablet
     setTimeout(() => {
-        showToast('¡Bienvenido a Special Forces Electrician! Explore nuestros servicios especializados.', 'success');
+        if (!isMobileDevice()) {
+            showToast('¡Bienvenido a Special Forces Electrician! Explore nuestros servicios especializados.', 'success');
+        }
     }, 1000);
     
     console.log('Special Forces Electrician - Servicios inicializados correctamente');

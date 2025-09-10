@@ -181,6 +181,11 @@ class QueHacemosPage {
         description: "Instalaciones modernas para hogares inteligentes.",
         features: ["Domótica", "Smart Home", "Paneles Solares", "Seguridad Residencial"],
       },
+      institucional: {
+        title: "Sector Institucional",
+        description: "Instalaciones especializadas para entidades públicas y educativas.",
+        features: ["Instalaciones Especiales", "Mantenimiento de Motores", "Automatización", "Mantenimiento Preventivo"],
+      },
     }
 
     const detail = details[specialty]
@@ -402,13 +407,77 @@ class QueHacemosPage {
     })
   }
 
+  // CORREGIDO: Función mejorada para el menú móvil
   initMobileMenu() {
     const navLinks = document.querySelectorAll(".navbar-nav .nav-link")
+    const dropdownItems = document.querySelectorAll(".dropdown-item")
     const navbarCollapse = document.querySelector(".navbar-collapse")
+    const navbarToggler = document.querySelector(".navbar-toggler")
 
+    // Manejar clicks en enlaces principales del navbar
     navLinks.forEach((link) => {
-      link.addEventListener("click", () => {
-        if (navbarCollapse && navbarCollapse.classList.contains("show")) {
+      link.addEventListener("click", (e) => {
+        // Solo cerrar si no es un dropdown toggle
+        if (!link.classList.contains("dropdown-toggle")) {
+          const href = link.getAttribute("href")
+          
+          // Verificar si es un enlace válido
+          if (href && href !== "#" && !href.startsWith("javascript:")) {
+            // Cerrar el menú móvil después de un pequeño delay para permitir la navegación
+            setTimeout(() => {
+              if (navbarCollapse && navbarCollapse.classList.contains("show")) {
+                try {
+                  const bsCollapse = this.bootstrap.Collapse.getOrCreateInstance(navbarCollapse)
+                  bsCollapse.hide()
+                } catch (error) {
+                  navbarCollapse.classList.remove("show")
+                }
+              }
+            }, 100)
+          }
+        }
+      })
+    })
+
+    // Manejar clicks en elementos del dropdown
+    dropdownItems.forEach((item) => {
+      item.addEventListener("click", (e) => {
+        const href = item.getAttribute("href")
+        
+        // Verificar si es un enlace válido
+        if (href && href !== "#" && !href.startsWith("javascript:")) {
+          // Permitir la navegación y luego cerrar el menú
+          setTimeout(() => {
+            if (navbarCollapse && navbarCollapse.classList.contains("show")) {
+              try {
+                const bsCollapse = this.bootstrap.Collapse.getOrCreateInstance(navbarCollapse)
+                bsCollapse.hide()
+              } catch (error) {
+                navbarCollapse.classList.remove("show")
+              }
+            }
+          }, 150)
+        }
+      })
+    })
+
+    // Mejorar el comportamiento del toggler
+    if (navbarToggler) {
+      navbarToggler.addEventListener("click", () => {
+        // Agregar pequeña animación al toggler
+        navbarToggler.style.transform = "scale(0.95)"
+        setTimeout(() => {
+          navbarToggler.style.transform = ""
+        }, 150)
+      })
+    }
+
+    // Cerrar menú al hacer click fuera
+    document.addEventListener("click", (e) => {
+      if (navbarCollapse && navbarCollapse.classList.contains("show")) {
+        const isClickInsideNav = navbarCollapse.contains(e.target) || navbarToggler.contains(e.target)
+        
+        if (!isClickInsideNav) {
           try {
             const bsCollapse = this.bootstrap.Collapse.getOrCreateInstance(navbarCollapse)
             bsCollapse.hide()
@@ -416,7 +485,7 @@ class QueHacemosPage {
             navbarCollapse.classList.remove("show")
           }
         }
-      })
+      }
     })
   }
 
@@ -427,9 +496,11 @@ class QueHacemosPage {
         if (window.scrollY > 50) {
           navbar.style.backgroundColor = "rgba(0, 0, 0, 0.95)"
           navbar.style.backdropFilter = "blur(10px)"
+          navbar.classList.add("scrolled")
         } else {
           navbar.style.backgroundColor = ""
           navbar.style.backdropFilter = ""
+          navbar.classList.remove("scrolled")
         }
       }
     })
@@ -540,6 +611,27 @@ style.textContent = `
         to {
             opacity: 0;
             transform: translateX(100%);
+        }
+    }
+
+    /* Estilos adicionales para navbar scrolled */
+    .navbar.scrolled {
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+    }
+
+    /* Mejorar dropdown en móvil */
+    @media (max-width: 991.98px) {
+        .dropdown-menu {
+            position: static !important;
+            transform: none !important;
+            border: none !important;
+            box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.2) !important;
+            margin: 0.5rem 0 !important;
+        }
+        
+        .dropdown-item {
+            padding: 0.75rem 1.5rem !important;
         }
     }
 `

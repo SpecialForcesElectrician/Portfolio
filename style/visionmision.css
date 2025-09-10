@@ -33,7 +33,7 @@ body {
   background-color: var(--sfe-dark-gray) !important;
 }
 
-/* Navigation */
+/* Navigation - DISEÑO ORIGINAL MANTENIDO */
 .navbar-brand {
   font-size: 1.2rem;
 }
@@ -47,7 +47,7 @@ body {
   color: var(--sfe-orange) !important;
 }
 
-/* Navigation Dropdown Styling */
+/* Navigation Dropdown Styling - DISEÑO ORIGINAL */
 .dropdown-menu {
   background-color: var(--sfe-gray) !important;
   border: 1px solid var(--sfe-light-gray) !important;
@@ -199,6 +199,7 @@ body {
 }
 
 .values-title::after {
+  content: "";
   position: absolute;
   bottom: -15px;
   left: 50%;
@@ -669,4 +670,25 @@ html {
 
 .newsletter .btn-warning:hover {
   transform: none;
+}
+
+/* Estilos adicionales para navbar scrolled */
+.navbar.scrolled {
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+/* Mejorar dropdown en móvil */
+@media (max-width: 991.98px) {
+  .dropdown-menu {
+    position: static !important;
+    transform: none !important;
+    border: none !important;
+    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.2) !important;
+    margin: 0.5rem 0 !important;
+  }
+  
+  .dropdown-item {
+    padding: 0.75rem 1.5rem !important;
+  }
 }

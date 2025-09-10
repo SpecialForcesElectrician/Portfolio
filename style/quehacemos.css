@@ -33,7 +33,7 @@ body {
   background-color: var(--sfe-dark-gray) !important;
 }
 
-/* Navigation */
+/* Navigation - DISEÑO ORIGINAL MANTENIDO */
 .navbar-brand {
   font-size: 1.2rem;
 }
@@ -47,7 +47,7 @@ body {
   color: var(--sfe-orange) !important;
 }
 
-/* Navigation Dropdown Styling */
+/* Navigation Dropdown Styling - DISEÑO ORIGINAL */
 .dropdown-menu {
   background-color: var(--sfe-gray) !important;
   border: 1px solid var(--sfe-light-gray) !important;
@@ -512,4 +512,4 @@ html {
 
 .newsletter .btn-warning:hover {
   transform: none;
-}
+} 
