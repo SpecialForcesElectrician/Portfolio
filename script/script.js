@@ -10,10 +10,9 @@ document.addEventListener("DOMContentLoaded", () => {
   initHeroCarousel()
   initSmoothScrolling()
   animateOnScroll()
-
   initMobileNavbar()
-
   initTestimonialCarousel()
+  initTestimonialStats()
 
   const newsletterButton = document.querySelector(".newsletter .btn-warning")
   if (newsletterButton) {
@@ -128,9 +127,10 @@ function goToSlide(slideIndex) {
   indicators[currentSlide].classList.add("btn-warning")
 }
 
+// Testimonial Functions - Mejoradas
 function initTestimonialCarousel() {
   const wrapper = document.querySelector(".testimonials-wrapper")
-  const testimonials = document.querySelectorAll(".testimonial-grid-card")
+  const testimonials = document.querySelectorAll(".testimonial-card")
 
   if (!wrapper || testimonials.length === 0) return
 
@@ -140,31 +140,164 @@ function initTestimonialCarousel() {
     wrapper.appendChild(clone)
   })
 
-  // Agregar event listeners para pausar/reanudar animación
-  const allTestimonials = wrapper.querySelectorAll(".testimonial-grid-card")
+  // Agregar event listeners mejorados
+  const allTestimonials = wrapper.querySelectorAll(".testimonial-card")
 
-  allTestimonials.forEach((testimonial) => {
+  allTestimonials.forEach((testimonial, index) => {
+    // Pausar animación al hover
     testimonial.addEventListener("mouseenter", () => {
       wrapper.style.animationPlayState = "paused"
+      testimonial.classList.add("testimonial-focused")
     })
 
     testimonial.addEventListener("mouseleave", () => {
       wrapper.style.animationPlayState = "running"
+      testimonial.classList.remove("testimonial-focused")
     })
 
+    // Click para expandir información
     testimonial.addEventListener("click", () => {
-      if (wrapper.style.animationPlayState === "paused") {
-        wrapper.style.animationPlayState = "running"
-      } else {
-        wrapper.style.animationPlayState = "paused"
-      }
+      expandTestimonial(testimonial, index)
     })
+
+    // Animación de entrada escalonada
+    testimonial.style.animationDelay = `${index * 0.1}s`
+    testimonial.classList.add("fade-in-up")
   })
+
+  // Actualizar indicador de progreso
+  updateProgressIndicator()
+}
+
+function expandTestimonial(testimonial, index) {
+  const clientName = testimonial.querySelector(".client-name").textContent
+  const testimonialText = testimonial.querySelector(".testimonial-text").textContent
+
+  // Crear modal con información expandida
+  const modalHTML = `
+    <div class="modal fade testimonial-modal" id="testimonialModal${index}" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content bg-dark-gray">
+          <div class="modal-header border-secondary">
+            <h5 class="modal-title text-warning">
+              <i class="fas fa-quote-left me-2"></i>Testimonio de ${clientName}
+            </h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <div class="testimonial-expanded">
+              <div class="testimonial-stars mb-3">
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star text-warning"></i>
+              </div>
+              <blockquote class="blockquote">
+                <p class="text-light fs-5">"${testimonialText}"</p>
+                <footer class="blockquote-footer mt-3">
+                  <cite title="Source Title" class="text-warning">${clientName}</cite>
+                  <small class="text-muted ms-2">Cliente verificado de Google Business</small>
+                </footer>
+              </blockquote>
+              <div class="mt-4">
+                <h6 class="text-warning">¿Por qué elegir Special Forces Electrician?</h6>
+                <div class="row mt-3">
+                  <div class="col-md-6">
+                    <ul class="list-unstyled">
+                      <li class="text-light mb-2"><i class="fas fa-check text-warning me-2"></i>Más de 5 años de experiencia</li>
+                      <li class="text-light mb-2"><i class="fas fa-check text-warning me-2"></i>Certificaciones RETIE</li>
+                      <li class="text-light mb-2"><i class="fas fa-check text-warning me-2"></i>Garantía extendida</li>
+                    </ul>
+                  </div>
+                  <div class="col-md-6">
+                    <ul class="list-unstyled">
+                      <li class="text-light mb-2"><i class="fas fa-check text-warning me-2"></i>Soporte 24/7</li>
+                      <li class="text-light mb-2"><i class="fas fa-check text-warning me-2"></i>Tecnología de vanguardia</li>
+                      <li class="text-light mb-2"><i class="fas fa-check text-warning me-2"></i>Precios competitivos</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer border-secondary">
+            <button type="button" class="btn btn-warning" onclick="openWhatsApp()">
+              <i class="fab fa-whatsapp me-2"></i>Obtener Cotización
+            </button>
+            <button type="button" class="btn btn-outline-warning" data-bs-dismiss="modal">
+              Cerrar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  `
+
+  // Agregar modal al DOM
+  document.body.insertAdjacentHTML("beforeend", modalHTML)
+
+  // Mostrar modal
+  const modal = new bootstrap.Modal(document.getElementById(`testimonialModal${index}`))
+  modal.show()
+
+  // Limpiar modal después de cerrar
+  document.getElementById(`testimonialModal${index}`).addEventListener("hidden.bs.modal", function () {
+    this.remove()
+  })
+}
+
+function initTestimonialStats() {
+  // Animar números de estadísticas
+  const statNumbers = document.querySelectorAll(".stat-number")
+
+  const animateStats = () => {
+    statNumbers.forEach((stat) => {
+      const target = Number.parseInt(stat.dataset.target)
+      const increment = target / 50
+      let current = 0
+
+      const timer = setInterval(() => {
+        current += increment
+        if (current >= target) {
+          current = target
+          clearInterval(timer)
+        }
+        stat.textContent = Math.floor(current)
+      }, 50)
+    })
+  }
+
+  // Observar cuando las estadísticas entren en vista
+  const statsObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animateStats()
+          statsObserver.unobserve(entry.target)
+        }
+      })
+    },
+    { threshold: 0.5 },
+  )
+
+  const statsSection = document.querySelector(".testimonials-stats")
+  if (statsSection) {
+    statsObserver.observe(statsSection)
+  }
+}
+
+function updateProgressIndicator() {
+  const progressFill = document.querySelector(".progress-fill")
+  if (progressFill) {
+    // Sincronizar con la animación del carrusel
+    progressFill.style.animationDuration = "40s"
+  }
 }
 
 // Mantener funciones de navegación manual para compatibilidad
 function nextTestimonial() {
-  const testimonials = document.querySelectorAll(".testimonial-grid-card")
+  const testimonials = document.querySelectorAll(".testimonial-card")
   const wrapper = document.querySelector(".testimonials-wrapper")
   if (!wrapper || testimonials.length === 0) return
 
@@ -192,7 +325,7 @@ function prevTestimonial() {
 
 function updateTestimonialCarousel() {
   const wrapper = document.querySelector(".testimonials-wrapper")
-  const testimonials = document.querySelectorAll(".testimonial-grid-card")
+  const testimonials = document.querySelectorAll(".testimonial-card")
   if (!wrapper || testimonials.length === 0) return
 
   let testimonialsInView = 3
