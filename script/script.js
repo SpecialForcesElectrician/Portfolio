@@ -186,15 +186,19 @@ function handleTouchMove(e) {
     isScrolling = diffY > diffX
   }
 
-  // Si es swipe horizontal, prevenir scroll vertical
+  // Si es swipe horizontal, prevenir scroll vertical y horizontal de la página
   if (!isScrolling && diffX > 10) {
     e.preventDefault()
+    e.stopPropagation()
+    // Prevenir que el evento se propague al documento
+    document.body.style.touchAction = "none"
   }
 }
 
 function handleTouchEnd(e) {
   if (!touchStartX || isScrolling) {
     resetTouchVariables()
+    document.body.style.touchAction = ""
     return
   }
 
@@ -203,6 +207,7 @@ function handleTouchEnd(e) {
 
   handleSwipe()
   resetTouchVariables()
+  document.body.style.touchAction = ""
 }
 
 // Funciones para mouse (desktop testing)
@@ -372,6 +377,7 @@ function resetTouchVariables() {
   touchStartY = 0
   touchEndY = 0
   isScrolling = false
+  document.body.style.touchAction = ""
 }
 
 // Testimonial Functions - Mejoradas

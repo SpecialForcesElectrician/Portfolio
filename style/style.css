@@ -17,12 +17,18 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
 body {
   font-family: "Inter", sans-serif;
   line-height: 1.6;
   color: #fff;
   background-color: var(--sfe-dark);
-  overflow-x: hidden; /* Elimina scroll horizontal */
 }
 
 /* Custom Background Classes */
@@ -181,9 +187,9 @@ body {
   box-shadow: 0 10px 25px rgba(255, 107, 53, 0.2);
 }
 
-/* ===================================
-SECCIÓN DE TESTIMONIOS CON SWIPE
-=================================== */
+/* =================================== */
+/* SECCIÓN DE TESTIMONIOS CON SWIPE */
+/* =================================== */
 
 .testimonials-section {
   position: relative;
@@ -348,7 +354,9 @@ SECCIÓN DE TESTIMONIOS CON SWIPE
   border-radius: 20px;
   background: rgba(255, 107, 53, 0.02);
   border: 1px solid rgba(255, 107, 53, 0.1);
-  touch-action: pan-y; /* Permitir scroll vertical pero controlar horizontal */
+  touch-action: pan-y pinch-zoom;
+  width: 100%;
+  max-width: 100%;
 }
 
 .testimonials-wrapper {
@@ -357,6 +365,8 @@ SECCIÓN DE TESTIMONIOS CON SWIPE
   transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   animation: testimonialFlow 40s linear infinite;
   animation-play-state: running;
+  width: max-content;
+  max-width: none;
 }
 
 @keyframes testimonialFlow {
@@ -372,9 +382,9 @@ SECCIÓN DE TESTIMONIOS CON SWIPE
   animation-play-state: paused;
 }
 
-/* ===================================
-INDICADORES DE SWIPE
-=================================== */
+/* =================================== */
+/* INDICADORES DE SWIPE */
+/* =================================== */
 
 .swipe-indicator {
   position: absolute;
@@ -421,7 +431,7 @@ INDICADORES DE SWIPE
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   cursor: pointer;
   min-height: 280px;
-  touch-action: manipulation; /* Optimizar para touch */
+  touch-action: manipulation;
 }
 
 .testimonial-card::before {
@@ -504,6 +514,16 @@ INDICADORES DE SWIPE
 .testimonial-card:hover .testimonial-badge {
   transform: rotate(360deg) scale(1.1);
   box-shadow: 0 8px 25px rgba(255, 107, 53, 0.5);
+}
+
+@keyframes avatarPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
 }
 
 /* Contenido del testimonio */
@@ -754,7 +774,7 @@ INDICADORES DE SWIPE
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.1), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
   animation: ctaShine 3s ease-in-out infinite;
 }
 
@@ -814,6 +834,11 @@ INDICADORES DE SWIPE
     height: 50px;
     font-size: 1.2rem;
   }
+
+  .testimonials-carousel-container {
+    margin: 0;
+    padding: 1.5rem 0;
+  }
 }
 
 @media (max-width: 768px) {
@@ -866,6 +891,16 @@ INDICADORES DE SWIPE
   .swipe-indicator.swipe-prev {
     left: 15px;
   }
+
+  .testimonials-carousel-container {
+    margin: 0 -15px;
+    padding: 1.5rem 15px;
+    border-radius: 0;
+  }
+
+  .container {
+    overflow: hidden;
+  }
 }
 
 @media (max-width: 576px) {
@@ -899,12 +934,17 @@ INDICADORES DE SWIPE
     font-size: 0.9rem;
   }
 
-  .swipe-indicator.swipe-next {
-    right: 10px;
+  .testimonials-carousel-container {
+    margin: 0 -20px;
+    padding: 1rem 20px;
+    width: calc(100% + 40px);
+    max-width: calc(100vw);
   }
 
-  .swipe-indicator.swipe-prev {
-    left: 10px;
+  .testimonials-section .container {
+    padding-left: 15px;
+    padding-right: 15px;
+    max-width: 100%;
   }
 }
 
